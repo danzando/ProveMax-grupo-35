@@ -13,11 +13,11 @@ import java.time.LocalDate;
  */
 public class Compra {
 
-   private int idCompra;
-   
-   private Proveedor proveedor;
-    
-   private LocalDate fechaDeCompra;
+    private int idCompra;
+
+    private Proveedor proveedor;
+
+    private LocalDate fechaDeCompra;
 
     public Compra() {
     }

@@ -11,15 +11,15 @@ package ProvemaxEntidades;
  */
 public class DetalleDeCompra {
 
- private int idDetalle;
- 
- private int cantidad;
- 
- private double precioDeCosto;
- 
- private Compra compra;
- 
- private Producto producto;
+    private int idDetalle;
+
+    private int cantidad;
+
+    private double precioDeCosto;
+
+    private Compra compra;
+
+    private Producto producto;
 
     public DetalleDeCompra() {
     }
@@ -78,14 +78,10 @@ public class DetalleDeCompra {
     public void setProducto(Producto producto) {
         this.producto = producto;
     }
-    
 
     @Override
     public String toString() {
         return "DetalleDeCompra{" + "idDetalle=" + idDetalle + ", cantidad=" + cantidad + ", precioDeCosto=" + precioDeCosto + ", compra=" + compra + ", producto=" + producto + '}';
     }
- 
- 
-    
-    
+
 }
