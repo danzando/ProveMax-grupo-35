@@ -18,6 +18,8 @@ public class Producto {
  private String descripcion;
 
  private String stock;
+ 
+ private boolean estado;
 
     public Producto() {
     }
@@ -34,6 +36,47 @@ public class Producto {
         this.descripcion = descripcion;
         this.stock = stock;
     }
+
+    public int getIdProducto() {
+        return idProducto;
+    }
+
+    public void setIdProducto(int idProducto) {
+        this.idProducto = idProducto;
+    }
+
+    public String getNombreDelProducto() {
+        return nombreDelProducto;
+    }
+
+    public void setNombreDelProducto(String nombreDelProducto) {
+        this.nombreDelProducto = nombreDelProducto;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getStock() {
+        return stock;
+    }
+
+    public void setStock(String stock) {
+        this.stock = stock;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+    
 
     @Override
     public String toString() {

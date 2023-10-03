@@ -39,6 +39,47 @@ public class DetalleDeCompra {
         this.producto = producto;
     }
 
+    public int getIdDetalle() {
+        return idDetalle;
+    }
+
+    public void setIdDetalle(int idDetalle) {
+        this.idDetalle = idDetalle;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public double getPrecioDeCosto() {
+        return precioDeCosto;
+    }
+
+    public void setPrecioDeCosto(double precioDeCosto) {
+        this.precioDeCosto = precioDeCosto;
+    }
+
+    public Compra getCompra() {
+        return compra;
+    }
+
+    public void setCompra(Compra compra) {
+        this.compra = compra;
+    }
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
+    
+
     @Override
     public String toString() {
         return "DetalleDeCompra{" + "idDetalle=" + idDetalle + ", cantidad=" + cantidad + ", precioDeCosto=" + precioDeCosto + ", compra=" + compra + ", producto=" + producto + '}';
