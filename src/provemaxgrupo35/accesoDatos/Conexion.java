@@ -1,4 +1,4 @@
-package ProvemaxEntidades;
+package provemaxgrupo35.accesoDatos;
 
 import java.sql.*;
 import java.util.logging.Level;
@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 public class Conexion {
 
     private static final String URL = "jdbc:mariadb://localhost/";
-    private static final String DB = "provemax-grupo35";
+    private static final String DB = "provemax-grupo-35";
     private static final String USUARIO = "root";
     private static final String PASSWORD = "";
 
