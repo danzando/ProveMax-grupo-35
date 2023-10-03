@@ -17,9 +17,9 @@ public class DetalleDeCompra {
  
  private double precioDeCosto;
  
- Compra compra;
+ private Compra compra;
  
- Producto producto;
+ private Producto producto;
 
     public DetalleDeCompra() {
     }

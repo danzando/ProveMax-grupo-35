@@ -16,28 +16,34 @@ public class Producto {
  private String nombreDelProducto;
  
  private String descripcion;
+ 
+ private double precio;
 
- private String stock;
+ private int stock;
  
  private boolean estado;
 
     public Producto() {
     }
 
-    public Producto(String nombreDelProducto, String descripcion, String stock, boolean estado) {
+    public Producto(String nombreDelProducto, String descripcion, double precio, int stock, boolean estado) {
         this.nombreDelProducto = nombreDelProducto;
         this.descripcion = descripcion;
+        this.precio = precio;
         this.stock = stock;
         this.estado = estado;
     }
 
-    public Producto(int idProducto, String nombreDelProducto, String descripcion, String stock, boolean estado) {
+    public Producto(int idProducto, String nombreDelProducto, String descripcion, double precio, int stock, boolean estado) {
         this.idProducto = idProducto;
         this.nombreDelProducto = nombreDelProducto;
         this.descripcion = descripcion;
+        this.precio = precio;
         this.stock = stock;
         this.estado = estado;
     }
+
+   
 
    
     
@@ -66,11 +72,20 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public String getStock() {
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    
+    public int getStock() {
         return stock;
     }
 
-    public void setStock(String stock) {
+    public void setStock(int stock) {
         this.stock = stock;
     }
 
@@ -84,9 +99,10 @@ public class Producto {
 
     @Override
     public String toString() {
-        return "Producto{" + "idProducto=" + idProducto + ", nombreDelProducto=" + nombreDelProducto + ", descripcion=" + descripcion + ", stock=" + stock + ", estado=" + estado + '}';
+        return "Producto{" + "idProducto=" + idProducto + ", nombreDelProducto=" + nombreDelProducto + ", descripcion=" + descripcion + ", precio=" + precio + ", stock=" + stock + ", estado=" + estado + '}';
     }
-    
+
+  
 
   
 
