@@ -24,18 +24,23 @@ public class Producto {
     public Producto() {
     }
 
-    public Producto(String nombreDelProducto, String descripcion, String stock) {
+    public Producto(String nombreDelProducto, String descripcion, String stock, boolean estado) {
         this.nombreDelProducto = nombreDelProducto;
         this.descripcion = descripcion;
         this.stock = stock;
+        this.estado = estado;
     }
 
-    public Producto(int idProducto, String nombreDelProducto, String descripcion, String stock) {
+    public Producto(int idProducto, String nombreDelProducto, String descripcion, String stock, boolean estado) {
         this.idProducto = idProducto;
         this.nombreDelProducto = nombreDelProducto;
         this.descripcion = descripcion;
         this.stock = stock;
+        this.estado = estado;
     }
+
+   
+    
 
     public int getIdProducto() {
         return idProducto;
@@ -76,12 +81,13 @@ public class Producto {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
-    
 
     @Override
     public String toString() {
-        return "Producto{" + "idProducto=" + idProducto + ", nombreDelProducto=" + nombreDelProducto + ", descripcion=" + descripcion + ", stock=" + stock + '}';
+        return "Producto{" + "idProducto=" + idProducto + ", nombreDelProducto=" + nombreDelProducto + ", descripcion=" + descripcion + ", stock=" + stock + ", estado=" + estado + '}';
     }
+    
 
+  
 
 }
