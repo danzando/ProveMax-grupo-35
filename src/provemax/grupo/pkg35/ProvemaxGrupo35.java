@@ -17,18 +17,18 @@ public class ProvemaxGrupo35 {
          //proDa.registrarProducto(p);
          
          
-         //MODIFICAR PRODUCTO
-         //Producto p = new Producto("Ventilador", "Liliana", 30000, 15, true);
-         //proDa.modificarProducto(p); //no se puede modificar desde main sin vista
-         
-         
-         //BUSCAR PRODUCTO
+          //BUSCAR PRODUCTO
          //proDa.buscarProducto(11);
-           
-              //System.out.println(proDa.buscarProducto(9));
+             // System.out.println(proDa.buscarProducto(11));
               
               
-             
+         //MODIFICAR PRODUCTO
+        Producto p = new Producto(11,"Ventilador", "Liliana", 30000, 15, true);
+         proDa.modificarProducto(p); 
+         System.out.println(p);
+
+         
+         
         //LISTAR PRODUCTOS
         //  proDa.listarProductos();   
         //  for (Producto producto: proDa.listarProductos()) {
