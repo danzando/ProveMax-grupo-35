@@ -21,7 +21,7 @@ public class CompraData {
     
     // realizar compra: producto solicitado, la cantidad y la fecha del pedido 
     // listar productos comprados en determinada fecha  / ultima compra
-    // listar compras a proveedor x
+    // listar compras a proveedor x : public List<Inscripcion> obtenerCompraPorProveedor(int idProveedor)
     //
     
     public void registrarCompra (Compra compra){
