@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package provemaxgrupo35.accesoDatos;
 
 import ProvemaxEntidades.Producto;
@@ -11,10 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Hp
- */
+
 public class ProductoData {
 
     private Connection con = null;
@@ -27,8 +20,8 @@ public class ProductoData {
 
     public void registrarProducto(Producto producto){
 
-        String sql = " insert into producto (nombreDelProducto, descripcion,precio, stock, estado)"
-                + " Values ( ?,?,?,?,?)";
+        String sql = "INSERT INTO producto (nombreDelProducto, descripcion,precio, stock, estado)"
+                + " VALUES ( ?,?,?,?,?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
@@ -63,7 +56,7 @@ public class ProductoData {
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            //seteo valores
+            
             
             ps.setString(1, producto.getNombreDelProducto());
             ps.setString(2, producto.getDescripcion());
@@ -102,7 +95,7 @@ public class ProductoData {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
 
-                pro = new Producto();  //esta de mas?
+                pro = new Producto();  
                 pro.setIdProducto(idProducto);
                 pro.setNombreDelProducto(rs.getString("nombreDelProducto"));
                 pro.setDescripcion(rs.getString("descripcion"));
@@ -112,7 +105,7 @@ public class ProductoData {
 
             } else {
 
-                JOptionPane.showMessageDialog(null, "No existe el producto");
+                JOptionPane.showMessageDialog(null, "Producto inexistente");
 
             }
 
@@ -130,7 +123,7 @@ public class ProductoData {
 
         List<Producto> productos = new ArrayList();
 
-        String sql = "Select * from Producto where estado = 1";
+        String sql = "SELECT nombreDelProducto, descripcion, precio, stock FROM Producto WHERE estado = 1"; // agregar nombre columnas en vez de *
 
         Producto prod = null;
 
