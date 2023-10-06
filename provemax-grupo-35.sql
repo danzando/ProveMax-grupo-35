@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-10-2023 a las 23:29:49
+-- Tiempo de generación: 06-10-2023 a las 23:34:57
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `provemax-grupo-35`
 --
+CREATE DATABASE IF NOT EXISTS `provemax-grupo-35` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `provemax-grupo-35`;
 
 -- --------------------------------------------------------
 
@@ -42,7 +44,7 @@ CREATE TABLE `compra` (
 CREATE TABLE `detalledecompra` (
   `idDetalle` int(11) NOT NULL,
   `cantidad` int(11) NOT NULL,
-  `precioDeCosto` tinyint(1) NOT NULL,
+  `precioDeCosto` double(9,2) NOT NULL,
   `idCompra` int(11) NOT NULL,
   `idProducto` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -57,20 +59,24 @@ CREATE TABLE `producto` (
   `idProducto` int(11) NOT NULL,
   `nombreDelProducto` varchar(30) NOT NULL,
   `descripcion` varchar(60) NOT NULL,
-  `stock` int(11) NOT NULL
+  `precio` double(9,2) NOT NULL,
+  `stock` int(11) NOT NULL,
+  `estado` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`idProducto`, `nombreDelProducto`, `descripcion`, `stock`) VALUES
-(1, 'Smart Tv ', 'Sony Full HD de 32', 50),
-(2, 'Heladera', 'No Frost Samsung', 10),
-(3, ' Lavarropas', 'Automático Drean 8Kg', 8),
-(4, 'Cafetera Express', ' Nespresso', 6),
-(5, 'Pava Eléctrica', 'Philips', 12),
-(6, 'Microondas', 'Sigma 20Lt', 16);
+INSERT INTO `producto` (`idProducto`, `nombreDelProducto`, `descripcion`, `precio`, `stock`, `estado`) VALUES
+(1, 'Smart Tv ', 'Sony Full HD de 32', 0.00, 50, 0),
+(2, 'Heladera', 'No Frost Samsung', 0.00, 10, 0),
+(3, ' Lavarropas', 'Automático Drean 8Kg', 0.00, 8, 0),
+(4, 'Cafetera Express', ' Nespresso', 0.00, 6, 0),
+(5, 'Pava Eléctrica', 'Philips', 0.00, 12, 0),
+(6, 'Microondas', 'Sigma 20Lt', 0.00, 16, 0),
+(9, 'Aspiradora', 'Electrolux Home', 130000.00, 22, 1),
+(11, 'Batidora', 'Liliana', 30000.00, 15, 0);
 
 -- --------------------------------------------------------
 
@@ -148,7 +154,7 @@ ALTER TABLE `detalledecompra`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `idProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedor`
