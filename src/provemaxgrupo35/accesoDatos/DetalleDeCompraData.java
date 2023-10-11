@@ -54,40 +54,7 @@ public class DetalleDeCompraData {
     
     
     }
-    public List<Producto> listarProductosCompradosPorFecha(/*paso DateFecha?*/)  {
 
-        List<Producto> productosComprados = new ArrayList<>();
-        
-        String sql = "SELECT p.nombreDelProducto, p.descripcion, p.precio" // poner todos los valores
-                    + "FROM producto p" 
-                    + "JOIN detalledecompra dc ON p.idProducto = dc.idProducto"
-                    + "JOIN compra c ON dc.idCompra = c.idCompra"
-                    + "WHERE c.fechaDeCompra = ?";
-
-        try {
-
-            PreparedStatement ps = con.prepareStatement(sql);
-            // COMO RESUELVO FECHA?????? AAAAAAGHHHHHH  parseo?
-                //ps.setFechaDeCompra(1,(LocalDate fechaDeCompra.getDate()));
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                Producto producto = new Producto();
-                producto.setIdProducto(rs.getInt("idProducto"));
-                producto.setNombreDelProducto(rs.getString("nombreDelProducto"));
-                producto.setDescripcion(rs.getString("descripcion"));
-                producto.setPrecio(rs.getDouble("precio"));
-                
-
-                productosComprados.add(producto);
-            }
-
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla detalledecompra");
-        }
-
-        return productosComprados;
-
-    }
     
     
 }
