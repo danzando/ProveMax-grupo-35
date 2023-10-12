@@ -1,4 +1,3 @@
-
 package provemaxgrupo35.accesoDatos;
 
 import ProvemaxEntidades.Producto;
@@ -7,7 +6,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-
 
 public class ProductoData {
 
@@ -19,7 +17,7 @@ public class ProductoData {
 
     }
 
-    public void registrarProducto(Producto producto){
+    public void registrarProducto(Producto producto) {
 
         String sql = "INSERT INTO producto (nombreDelProducto, descripcion,precio, stock, estado)"
                 + " VALUES ( ?,?,?,?,?)";
@@ -57,8 +55,7 @@ public class ProductoData {
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            
-            
+
             ps.setString(1, producto.getNombreDelProducto());
             ps.setString(2, producto.getDescripcion());
             ps.setDouble(3, producto.getPrecio());
@@ -66,7 +63,7 @@ public class ProductoData {
             ps.setBoolean(5, producto.isEstado());
             ps.setInt(6, producto.getIdProducto());
             ps.executeUpdate();            //devuelve int con cant filas afectadas. lo guardo en variable:
-            
+
             int modif = ps.executeUpdate();
             if (modif == 1) {
                 JOptionPane.showMessageDialog(null, "Datos de producto actualizados");
@@ -83,7 +80,6 @@ public class ProductoData {
 
     }
 
-    
     public Producto buscarProducto(int idProducto) {
 
         String sql = "SELECT nombreDelProducto, descripcion, precio, stock, estado FROM producto WHERE idProducto=? AND estado=1";
@@ -96,7 +92,7 @@ public class ProductoData {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
 
-                pro = new Producto();  
+                pro = new Producto();
                 pro.setIdProducto(idProducto);
                 pro.setNombreDelProducto(rs.getString("nombreDelProducto"));
                 pro.setDescripcion(rs.getString("descripcion"));
@@ -160,7 +156,7 @@ public class ProductoData {
         return productos;
 
     }
-    
+
     public void eliminarProducto(int idProducto) {
         String sql = "UPDATE producto SET estado=0 WHERE idProducto=?";
         try {
@@ -178,22 +174,22 @@ public class ProductoData {
         }
 
     }
-    
-       public List<Producto> listarProductosCompradosPorFecha(LocalDate fechaDeCompra) {
+
+    public List<Producto> listarProductosCompradosPorFecha(LocalDate fechaDeCompra) {
 
         List<Producto> productosComprados = new ArrayList<>();
 
-        String sql = "SELECT p.nombreDelProducto, p.descripcion, p.precio" 
-                + "FROM producto p"
-                + "JOIN detalledecompra dc ON p.idProducto = dc.idProducto"
-                + "JOIN compra c ON dc.idCompra = c.idCompra"
-                + "WHERE c.fechaDeCompra = ?";
+        String sql = "SELECT p.nombreDelProducto, p.descripcion, p.precio "
+                + "FROM producto p, detalledecompra dc, compra c "
+                + "WHERE p.idProducto = dc.idProducto "
+                + "AND c.fechaDeCompra = ? "
+                + "AND dc.idCompra = c.idCompra ";
 
         try {
 
             PreparedStatement ps = con.prepareStatement(sql);
             Date sqlDate = Date.valueOf(fechaDeCompra);
-            ps.setDate(1,sqlDate);
+            ps.setDate(1, sqlDate);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -214,6 +210,5 @@ public class ProductoData {
         return productosComprados;
 
     }
-
 
 }
