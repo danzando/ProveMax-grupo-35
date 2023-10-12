@@ -5,7 +5,8 @@
  */
 package provemaxgrupo35.accesoDatos;
 
-import ProvemaxEntidades.Proveedor;
+import ProvemaxEntidades.*;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -160,6 +161,46 @@ public class ProveedorData {
         return proveedores;
 
     }
+     public List<Proveedor> obtenerProveedoresDelProducto(Producto pro) {
+
+        List<Proveedor> proveedores = new ArrayList<>();
+
+        String sql = "SELECT P.idProveedor, P.razonSocial, P.domicilio, P.telefono, P.mail FROM Proveedor P "
+                + "INNER JOIN Compra C ON P.idProveedor = C.idProveedor "
+                + "INNER JOIN DetalleDeCompra D ON C.idCompra = D.idCompra "
+                + "INNER JOIN Producto PR ON D.idProducto = PR.idProducto "
+                + "WHERE PR.nombreDelProducto = ?";
+
+        Proveedor p = null;
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, pro.getNombreDelProducto());
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+
+                p = new Proveedor();
+
+                p.setIdProveedor(rs.getInt("idProveedor"));
+                p.setRazonSocial(rs.getString("razonSocial"));
+                p.setDomicilio(rs.getString("domicilio"));
+                p.setTelefono(rs.getString("telefono"));
+                p.setMail(rs.getString("mail"));
+
+                proveedores.add(p);
+
+            }
+
+            ps.close();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a tabla proveedor");
+        }
+
+        return proveedores;
+
+    }
 }
+
 
 

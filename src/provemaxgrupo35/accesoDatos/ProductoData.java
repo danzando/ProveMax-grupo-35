@@ -1,6 +1,6 @@
 package provemaxgrupo35.accesoDatos;
 
-import ProvemaxEntidades.Producto;
+import ProvemaxEntidades.*;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -210,5 +210,41 @@ public class ProductoData {
         return productosComprados;
 
     }
+     public List<Producto> ProductosDeCompraParticular(Compra compra) {
+        List<Producto> productos = new ArrayList<>();
+
+        try {
+            String sql = "SELECT P.idProducto, P.nombreDelProducto, P.descripcion, P.precio, P.stock , P.estado "
+                    + "FROM Producto P "
+                    + "JOIN DetalleDeCompra D ON P.idProducto = D.idProducto "
+                    + "WHERE D.idCompra = ?";
+            
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, compra.getIdCompra());
+            ResultSet rs = ps.executeQuery();
+              Producto prod = null;
+             while (rs.next()) {
+               prod = new Producto();
+                prod.setIdProducto(rs.getInt("idProducto"));
+
+                prod.setNombreDelProducto(rs.getString("nombreDelProducto"));
+
+                prod.setDescripcion(rs.getString("descripcion"));
+
+                prod.setPrecio(rs.getDouble("precio"));
+
+                prod.setStock(rs.getInt("stock"));
+                 prod.setEstado(true);
+                 
+                  productos.add(prod);
+       }
+            ps.close();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a tabla producto");
+        }
+
+        return productos;
+     }
 
 }
