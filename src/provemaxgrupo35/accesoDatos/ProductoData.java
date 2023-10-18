@@ -179,7 +179,7 @@ public class ProductoData {
 
         List<Producto> productosComprados = new ArrayList<>();
 
-        String sql = "SELECT p.nombreDelProducto, p.descripcion, p.precio "
+        String sql = "SELECT p.idProducto, p.nombreDelProducto, p.descripcion, p.precio "
                 + "FROM producto p, detalledecompra dc, compra c "
                 + "WHERE p.idProducto = dc.idProducto "
                 + "AND c.fechaDeCompra = ? "

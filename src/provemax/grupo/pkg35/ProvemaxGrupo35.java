@@ -67,9 +67,9 @@ public class ProvemaxGrupo35 {
 //        }
 
         //TODOS LOS PRODUCTOS DE UNA COMPRA EN UNA FECHA ESPECIFICA
-//        for (Producto productosComprados : proDa.listarProductosCompradosPorFecha(LocalDate.of(2023, 10, 9))) {
-//            System.out.println(productosComprados);
-//        }
+        for (Producto productosComprados : proDa.listarProductosCompradosPorFecha(LocalDate.of(2023, 10, 9))) {
+            System.out.println(productosComprados);
+        }
 
         //MOSTRAR QUE PROVEEDORES, PROVEEN EL PRODUCTO 
 //        Producto prob = proDa.buscarProducto(2);
@@ -85,8 +85,8 @@ public class ProvemaxGrupo35 {
 //        }
         
         //PRODUCTOS MAS COMPRADOS ENTRE FECHAS
-for(Producto productosMasC:proDa.masCompradosEntreFechas( LocalDate.of(2023,04,01),LocalDate.of(2023,04,02))){
-    System.out.println(productosMasC);
-}
+//            for (Producto productosMasC : proDa.masCompradosEntreFechas(LocalDate.of(2023, 10, 01), LocalDate.of(2023, 10, 18))) {
+//            System.out.println(productosMasC);
+//        }
     }
 }
