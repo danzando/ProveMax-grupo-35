@@ -61,27 +61,32 @@ public class ProvemaxGrupo35 {
 //            System.out.println(compras);
 //        }
         //COMPRAS POR PROVEEDOR
-        Proveedor pro = pd.buscarProveedor(10);
-        for (Compra xproveedor : cd.ComprasPorProveedor(pro)) {
-            System.out.println(xproveedor);
-        }
+//        Proveedor pro = pd.buscarProveedor(10);
+//        for (Compra xproveedor : cd.ComprasPorProveedor(pro)) {
+//            System.out.println(xproveedor);
+//        }
 
         //TODOS LOS PRODUCTOS DE UNA COMPRA EN UNA FECHA ESPECIFICA
-        for (Producto productosComprados : proDa.listarProductosCompradosPorFecha(LocalDate.of(2023, 10, 9))) {
-            System.out.println(productosComprados);
-        }
+//        for (Producto productosComprados : proDa.listarProductosCompradosPorFecha(LocalDate.of(2023, 10, 9))) {
+//            System.out.println(productosComprados);
+//        }
 
         //MOSTRAR QUE PROVEEDORES, PROVEEN EL PRODUCTO 
-        Producto prob = proDa.buscarProducto(2);
+//        Producto prob = proDa.buscarProducto(2);
 
-        for (Proveedor proveedores : pd.obtenerProveedoresDelProducto(prob)) {
-            System.out.println(proveedores);
+//        for (Proveedor proveedores : pd.obtenerProveedoresDelProducto(prob)) {
+//            System.out.println(proveedores);
 
-        }
+//        }
         //TODOS LOS PRODUCTOS DE UNA COMPRA EN PARTICULAR
                   
-        for (Producto productos : proDa.ProductosDeCompraParticular(cd.buscarCompra(6))) {
-            System.out.println(productos);
-        }
+//        for (Producto productos : proDa.ProductosDeCompraParticular(cd.buscarCompra(6))) {
+//            System.out.println(productos);
+//        }
+        
+        //PRODUCTOS MAS COMPRADOS ENTRE FECHAS
+for(Producto productosMasC:proDa.masCompradosEntreFechas( LocalDate.of(2023,04,01),LocalDate.of(2023,04,02))){
+    System.out.println(productosMasC);
+}
     }
 }

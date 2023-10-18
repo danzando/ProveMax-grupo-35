@@ -246,5 +246,45 @@ public class ProductoData {
 
         return productos;
      }
+ public List<Producto> masCompradosEntreFechas(LocalDate fechaDeCompra1, LocalDate fechaDeCompra2) {
 
+        List<Producto> pmc = new ArrayList<>();
+
+        String sql = " SELECT p.idProducto, p.nombreDelProducto, p.descripcion, p.precio, p.stock, SUM(dc.cantidad) AS cantidadComprada "
+                + " FROM DetalleDeCompra dc "
+                + " JOIN Compra c ON dc.idCompra = c.idCompra "
+                + " JOIN Producto p ON dc.idProducto = p.idProducto "
+                + " WHERE c.fechaDeCompra BETWEEN ? AND ? "
+                + " GROUP BY p.idProducto, p.nombreDelProducto "
+                + " ORDER BY cantidadComprada DESC "
+                + " LIMIT 5 ";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setDate(1, java.sql.Date.valueOf(fechaDeCompra1));
+            ps.setDate(2, java.sql.Date.valueOf(fechaDeCompra2));
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Producto a = new Producto();
+
+                a.setIdProducto(rs.getInt("idProducto"));
+                a.setNombreDelProducto(rs.getString("nombreDelProducto"));
+                a.setDescripcion(rs.getString("descripcion"));
+                a.setPrecio(rs.getDouble("precio"));
+                a.setStock(rs.getInt("stock"));
+
+                pmc.add(a);
+
+            }
+            ps.close();
+
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "Error al acceder a tabla ");
+        }
+
+        return pmc;
+    }
 }
