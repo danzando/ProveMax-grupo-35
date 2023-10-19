@@ -15,11 +15,11 @@ public class ProvemaxGrupo35 {
         ProductoData proDa = new ProductoData();
 
         // REGISTRAR PRODUCTO:
-        //Producto p = new Producto("Batidora", "Liliana", 30000, 15, true);
-        //proDa.registrarProducto(p);
-        //BUSCAR PRODUCTO
-        //proDa.buscarProducto(11);
-        // System.out.println(proDa.buscarProducto(11));
+//        Producto p = new Producto("Batidora", "Luna", 20000, 8, true);
+//        proDa.registrarProducto(p);
+//        BUSCAR PRODUCTO
+//        proDa.buscarProducto(11);
+//         System.out.println(proDa.buscarProducto(11));
         //MODIFICAR PRODUCTO
 //        Producto p = new Producto(11,"Ventilador", "Liliana", 30000, 15, true);
 //         proDa.modificarProducto(p); 
@@ -67,9 +67,9 @@ public class ProvemaxGrupo35 {
 //        }
 
         //TODOS LOS PRODUCTOS DE UNA COMPRA EN UNA FECHA ESPECIFICA
-        for (Producto productosComprados : proDa.listarProductosCompradosPorFecha(LocalDate.of(2023, 10, 9))) {
-            System.out.println(productosComprados);
-        }
+//        for (Producto productosComprados : proDa.listarProductosCompradosPorFecha(LocalDate.of(2023, 10, 9))) {
+//            System.out.println(productosComprados);
+//        }
 
         //MOSTRAR QUE PROVEEDORES, PROVEEN EL PRODUCTO 
 //        Producto prob = proDa.buscarProducto(2);
@@ -85,8 +85,16 @@ public class ProvemaxGrupo35 {
 //        }
         
         //PRODUCTOS MAS COMPRADOS ENTRE FECHAS
-//            for (Producto productosMasC : proDa.masCompradosEntreFechas(LocalDate.of(2023, 10, 01), LocalDate.of(2023, 10, 18))) {
+//            for (Producto productosMasC : proDa.masCompradosEntreFechas(LocalDate.of(2023, 8, 01), LocalDate.of(2023, 10, 18))) {
 //            System.out.println(productosMasC);
 //        }
+//    }
+    
+    //STOCK MINIMO
+   for (Producto producto : proDa.ListarProMin()) {
+            //if (producto.getStock() < 10) {
+
+                System.out.println(producto.getNombreDelProducto() + " (stock: " + producto.getStock() + ")");
+            }
+        }
     }
-}

@@ -210,7 +210,8 @@ public class ProductoData {
         return productosComprados;
 
     }
-     public List<Producto> ProductosDeCompraParticular(Compra compra) {
+
+    public List<Producto> ProductosDeCompraParticular(Compra compra) {
         List<Producto> productos = new ArrayList<>();
 
         try {
@@ -218,13 +219,13 @@ public class ProductoData {
                     + "FROM Producto P "
                     + "JOIN DetalleDeCompra D ON P.idProducto = D.idProducto "
                     + "WHERE D.idCompra = ?";
-            
+
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, compra.getIdCompra());
             ResultSet rs = ps.executeQuery();
-              Producto prod = null;
-             while (rs.next()) {
-               prod = new Producto();
+            Producto prod = null;
+            while (rs.next()) {
+                prod = new Producto();
                 prod.setIdProducto(rs.getInt("idProducto"));
 
                 prod.setNombreDelProducto(rs.getString("nombreDelProducto"));
@@ -234,10 +235,10 @@ public class ProductoData {
                 prod.setPrecio(rs.getDouble("precio"));
 
                 prod.setStock(rs.getInt("stock"));
-                 prod.setEstado(true);
-                 
-                  productos.add(prod);
-       }
+                prod.setEstado(true);
+
+                productos.add(prod);
+            }
             ps.close();
 
         } catch (SQLException ex) {
@@ -245,8 +246,9 @@ public class ProductoData {
         }
 
         return productos;
-     }
- public List<Producto> masCompradosEntreFechas(LocalDate fechaDeCompra1, LocalDate fechaDeCompra2) {
+    }
+
+    public List<Producto> masCompradosEntreFechas(LocalDate fechaDeCompra1, LocalDate fechaDeCompra2) {
 
         List<Producto> pmc = new ArrayList<>();
 
@@ -287,4 +289,38 @@ public class ProductoData {
 
         return pmc;
     }
+
+    public List<Producto> ListarProMin() {
+
+        List<Producto> productos = new ArrayList<>();
+
+        String sql = "SELECT idProducto, nombreDelProducto, descripcion, precio, stock FROM producto WHERE estado = 1 AND stock <=10 ";
+
+        try {
+
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            Producto prod = null;
+            while (rs.next()) {
+                prod = new Producto();
+                
+                prod.setIdProducto(rs.getInt("idProducto"));
+                prod.setNombreDelProducto(rs.getString("nombreDelProducto"));
+                prod.setDescripcion(rs.getString("descripcion"));
+                prod.setPrecio(rs.getDouble("precio"));
+                prod.setStock(rs.getInt("stock"));
+
+                productos.add(prod);
+
+            }
+
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al buscar un producto"+ ex);
+
+        }
+        return productos;
+    }
+
 }

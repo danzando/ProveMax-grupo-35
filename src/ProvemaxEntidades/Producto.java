@@ -102,6 +102,10 @@ public class Producto {
         return  "Codigo: " + idProducto + ", " + nombreDelProducto+ " "  + descripcion + ", precio:" + precio + ", stock: " + stock;
     }
 
+    public void setNombreProd(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
   
 
   
