@@ -31,17 +31,19 @@ public class MenuView extends javax.swing.JFrame {
         escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMproducto = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItemGestionProductos = new javax.swing.JMenuItem();
+        jMenuItemProductosXproveedor = new javax.swing.JMenuItem();
         jMproveedores = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItemGestionProveedores = new javax.swing.JMenuItem();
         jMcompras = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItemRegistroCompras = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItemDetalleCompras = new javax.swing.JMenuItem();
+        jMsalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        escritorio.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(51, 51, 51))); // NOI18N
+        escritorio.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(51, 51, 51))); // NOI18N
         escritorio.setForeground(new java.awt.Color(102, 102, 0));
         escritorio.setDesktopManager(null);
         escritorio.setDragMode(javax.swing.JDesktopPane.OUTLINE_DRAG_MODE);
@@ -67,50 +69,67 @@ public class MenuView extends javax.swing.JFrame {
         jMproducto.setText("PRODUCTOS");
         jMproducto.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
-        jMenuItem1.setText("Gestion de Productos");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemGestionProductos.setText("Gestion de Productos");
+        jMenuItemGestionProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jMenuItemGestionProductosActionPerformed(evt);
             }
         });
-        jMproducto.add(jMenuItem1);
+        jMproducto.add(jMenuItemGestionProductos);
+
+        jMenuItemProductosXproveedor.setText("Producto por Proveedor");
+        jMenuItemProductosXproveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemProductosXproveedorActionPerformed(evt);
+            }
+        });
+        jMproducto.add(jMenuItemProductosXproveedor);
 
         jMenuBar1.add(jMproducto);
 
         jMproveedores.setText("PROVEEDORES");
         jMproveedores.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
-        jMenuItem2.setText("Gestion de Proveedores");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemGestionProveedores.setText("Gestion de Proveedores");
+        jMenuItemGestionProveedores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                jMenuItemGestionProveedoresActionPerformed(evt);
             }
         });
-        jMproveedores.add(jMenuItem2);
+        jMproveedores.add(jMenuItemGestionProveedores);
 
         jMenuBar1.add(jMproveedores);
 
         jMcompras.setText("COMPRAS");
         jMcompras.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
-        jMenuItem3.setText("Registro de Compras");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemRegistroCompras.setText("Registro de Compras");
+        jMenuItemRegistroCompras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                jMenuItemRegistroComprasActionPerformed(evt);
             }
         });
-        jMcompras.add(jMenuItem3);
+        jMcompras.add(jMenuItemRegistroCompras);
         jMcompras.add(jSeparator2);
 
-        jMenuItem4.setText("Detalle de Compras");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemDetalleCompras.setText("Detalle de Compras");
+        jMenuItemDetalleCompras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                jMenuItemDetalleComprasActionPerformed(evt);
             }
         });
-        jMcompras.add(jMenuItem4);
+        jMcompras.add(jMenuItemDetalleCompras);
 
         jMenuBar1.add(jMcompras);
+
+        jMsalir.setText("SALIR");
+        jMsalir.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jMsalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMsalirMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMsalir);
 
         setJMenuBar(jMenuBar1);
 
@@ -140,21 +159,49 @@ public class MenuView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    private void jMenuItemGestionProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGestionProductosActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        productoView prodView = new productoView();
+        prodView.setVisible(true);
+        escritorio.add(prodView);
+        escritorio.moveToFront(prodView);
+    }//GEN-LAST:event_jMenuItemGestionProductosActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    private void jMenuItemGestionProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGestionProveedoresActionPerformed
+         escritorio.removeAll();
+        escritorio.repaint();
+        ProveedorView proveeView = new ProveedorView();
+        proveeView.setVisible(true);
+        escritorio.add(proveeView);
+        escritorio.moveToFront(proveeView);
+    }//GEN-LAST:event_jMenuItemGestionProveedoresActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void jMenuItemDetalleComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDetalleComprasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_jMenuItemDetalleComprasActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    private void jMenuItemRegistroComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRegistroComprasActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        comprasView comprasView = new comprasView();
+        comprasView.setVisible(true);
+        escritorio.add(comprasView);
+        escritorio.moveToFront(comprasView);
+    }//GEN-LAST:event_jMenuItemRegistroComprasActionPerformed
+
+    private void jMenuItemProductosXproveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemProductosXproveedorActionPerformed
+         escritorio.removeAll();
+        escritorio.repaint();
+        productoView productoView = new productoView();
+        productoView.setVisible(true);
+        escritorio.add(productoView);
+        escritorio.moveToFront(productoView);
+    }//GEN-LAST:event_jMenuItemProductosXproveedorActionPerformed
+
+    private void jMsalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMsalirMouseClicked
+        dispose();
+    }//GEN-LAST:event_jMsalirMouseClicked
 
     /**
      * @param args the command line arguments
@@ -198,12 +245,14 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMcompras;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItemDetalleCompras;
+    private javax.swing.JMenuItem jMenuItemGestionProductos;
+    private javax.swing.JMenuItem jMenuItemGestionProveedores;
+    private javax.swing.JMenuItem jMenuItemProductosXproveedor;
+    private javax.swing.JMenuItem jMenuItemRegistroCompras;
     private javax.swing.JMenu jMproducto;
     private javax.swing.JMenu jMproveedores;
+    private javax.swing.JMenu jMsalir;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
