@@ -15,9 +15,9 @@ import provemaxgrupo35.accesoDatos.*;
  */
 public class ProveedorView extends javax.swing.JInternalFrame {
 
-      Proveedor prov = null;
+    Proveedor prov = null;
     ProveedorData pd = new ProveedorData();
-    
+
     public ProveedorView() {
         initComponents();
     }
@@ -231,12 +231,12 @@ public class ProveedorView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTDomicilioActionPerformed
 
     private void jBNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNuevoActionPerformed
-          limpiarCampos();
+        limpiarCampos();
         prov = null;
     }//GEN-LAST:event_jBNuevoActionPerformed
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
-      String input = jTIdProveedor.getText();
+        String input = jTIdProveedor.getText();
 
         if (input.isEmpty()) {
 
@@ -255,14 +255,14 @@ public class ProveedorView extends javax.swing.JInternalFrame {
                 }
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(this, "Se ha ingresado un dato incorrecto, intente nuevamente");
-                  limpiarCampos();
+                limpiarCampos();
             }
-        
-    }                
+
+        }
     }//GEN-LAST:event_jBBuscarActionPerformed
 
     private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
-     try {
+        try {
 
             String razonSocial = jTRazonSocial.getText();
             String domicilio = jTDomicilio.getText();
@@ -289,11 +289,12 @@ public class ProveedorView extends javax.swing.JInternalFrame {
 
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Se ha ingresado un dato incorrecto, intente nuevamente");
+            limpiarCampos();
         }
     }//GEN-LAST:event_jBGuardarActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
-          dispose();
+        dispose();
     }//GEN-LAST:event_jBSalirActionPerformed
 
 
