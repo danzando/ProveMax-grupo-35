@@ -5,15 +5,19 @@
  */
 package Vistas;
 
+import ProvemaxEntidades.*;
+import javax.swing.JOptionPane;
+import provemaxgrupo35.accesoDatos.*;
+
 /**
  *
  * @author Hp
  */
 public class ProveedorView extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form ProveedorView
-     */
+      Proveedor prov = null;
+    ProveedorData pd = new ProveedorData();
+    
     public ProveedorView() {
         initComponents();
     }
@@ -40,10 +44,8 @@ public class ProveedorView extends javax.swing.JInternalFrame {
         jTTelefono = new javax.swing.JTextField();
         jTMail = new javax.swing.JTextField();
         jBNuevo = new javax.swing.JButton();
-        jBModificar = new javax.swing.JButton();
-        jBEliminar = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        jBBuscar = new javax.swing.JButton();
+        jBGuardar = new javax.swing.JButton();
         jBSalir = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(800, 600));
@@ -92,21 +94,35 @@ public class ProveedorView extends javax.swing.JInternalFrame {
 
         jBNuevo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jBNuevo.setText("Nuevo");
+        jBNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBNuevoActionPerformed(evt);
+            }
+        });
 
-        jBModificar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jBModificar.setText("Modificar");
+        jBBuscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jBBuscar.setText("Buscar");
+        jBBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBBuscarActionPerformed(evt);
+            }
+        });
 
-        jBEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jBEliminar.setText("Eliminar");
-
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton4.setText("jButton4");
-
-        jButton5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton5.setText("jButton5");
+        jBGuardar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jBGuardar.setText("Guardar");
+        jBGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBGuardarActionPerformed(evt);
+            }
+        });
 
         jBSalir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jBSalir.setText("Salir");
+        jBSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -128,13 +144,9 @@ public class ProveedorView extends javax.swing.JInternalFrame {
                             .addComponent(jTIdProveedor, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jTDomicilio, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jBNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jBNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(60, 60, 60)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jBModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))
+                        .addComponent(jBBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -142,7 +154,7 @@ public class ProveedorView extends javax.swing.JInternalFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(69, 69, 69)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jBEliminar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                                    .addComponent(jBGuardar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
                                     .addComponent(jTTelefono)
                                     .addComponent(jTMail, javax.swing.GroupLayout.Alignment.TRAILING))))))
                 .addGap(100, 100, 100))
@@ -183,13 +195,10 @@ public class ProveedorView extends javax.swing.JInternalFrame {
                 .addGap(96, 96, 96)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBNuevo)
-                    .addComponent(jBModificar)
-                    .addComponent(jBEliminar))
+                    .addComponent(jBBuscar)
+                    .addComponent(jBGuardar))
                 .addGap(100, 100, 100)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5)
-                    .addComponent(jBSalir))
+                .addComponent(jBSalir)
                 .addContainerGap(96, Short.MAX_VALUE))
         );
 
@@ -200,7 +209,7 @@ public class ProveedorView extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,14 +230,78 @@ public class ProveedorView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTDomicilioActionPerformed
 
+    private void jBNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNuevoActionPerformed
+          limpiarCampos();
+        prov = null;
+    }//GEN-LAST:event_jBNuevoActionPerformed
+
+    private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
+      String input = jTIdProveedor.getText();
+
+        if (input.isEmpty()) {
+
+            JOptionPane.showMessageDialog(this, "Debe ingresar un valor en el campo IdProveedor.");
+        } else {
+            try {
+                int idProveedor = Integer.parseInt(jTIdProveedor.getText());
+                prov = pd.buscarProveedor(idProveedor);
+                if (prov != null) {
+
+                    jTRazonSocial.setText(prov.getRazonSocial());
+                    jTDomicilio.setText(prov.getDomicilio());
+                    jTTelefono.setText(prov.getTelefono());
+                    jTMail.setText(prov.getMail());
+
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Se ha ingresado un dato incorrecto, intente nuevamente");
+                  limpiarCampos();
+            }
+        
+    }                
+    }//GEN-LAST:event_jBBuscarActionPerformed
+
+    private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
+     try {
+
+            String razonSocial = jTRazonSocial.getText();
+            String domicilio = jTDomicilio.getText();
+            String telefono = jTTelefono.getText();
+            String mail = jTMail.getText();
+
+            if (razonSocial.isEmpty() || domicilio.isEmpty() || telefono.isEmpty() || mail.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "No puede haber campos vacíos");
+                return;
+            }
+
+            if (prov == null) {
+                prov = new Proveedor(razonSocial, domicilio, telefono, mail);
+                pd.registrarProveedor(prov);
+
+            } else {
+                prov.setRazonSocial(razonSocial);
+                prov.setDomicilio(domicilio);
+                prov.setTelefono(telefono);
+                prov.setMail(mail);
+                pd.modificarProveedor(prov);
+
+            }
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Se ha ingresado un dato incorrecto, intente nuevamente");
+        }
+    }//GEN-LAST:event_jBGuardarActionPerformed
+
+    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
+          dispose();
+    }//GEN-LAST:event_jBSalirActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBEliminar;
-    private javax.swing.JButton jBModificar;
+    private javax.swing.JButton jBBuscar;
+    private javax.swing.JButton jBGuardar;
     private javax.swing.JButton jBNuevo;
     private javax.swing.JButton jBSalir;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLDomicilio;
     private javax.swing.JLabel jLIdProveedor;
     private javax.swing.JLabel jLMail;
@@ -242,4 +315,11 @@ public class ProveedorView extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTRazonSocial;
     private javax.swing.JTextField jTTelefono;
     // End of variables declaration//GEN-END:variables
+private void limpiarCampos() {
+        jTIdProveedor.setText("");
+        jTRazonSocial.setText("");
+        jTDomicilio.setText("");
+        jTTelefono.setText("");
+        jTMail.setText("");
+    }
 }
