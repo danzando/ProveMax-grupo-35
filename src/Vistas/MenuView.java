@@ -178,7 +178,12 @@ public class MenuView extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemGestionProveedoresActionPerformed
 
     private void jMenuItemDetalleComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDetalleComprasActionPerformed
-        // TODO add your handling code here:
+         escritorio.removeAll();
+        escritorio.repaint();
+        DetallesDeCompraView DcomprasView = new DetallesDeCompraView();
+        DcomprasView.setVisible(true);
+        escritorio.add(DcomprasView);
+        escritorio.moveToFront(DcomprasView);
     }//GEN-LAST:event_jMenuItemDetalleComprasActionPerformed
 
     private void jMenuItemRegistroComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRegistroComprasActionPerformed
@@ -193,10 +198,10 @@ public class MenuView extends javax.swing.JFrame {
     private void jMenuItemProductosXproveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemProductosXproveedorActionPerformed
          escritorio.removeAll();
         escritorio.repaint();
-        productoView productoView = new productoView();
-        productoView.setVisible(true);
-        escritorio.add(productoView);
-        escritorio.moveToFront(productoView);
+        productoProveedorView prodProveView = new productoProveedorView();
+        prodProveView.setVisible(true);
+        escritorio.add(prodProveView);
+        escritorio.moveToFront(prodProveView);
     }//GEN-LAST:event_jMenuItemProductosXproveedorActionPerformed
 
     private void jMsalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMsalirMouseClicked
