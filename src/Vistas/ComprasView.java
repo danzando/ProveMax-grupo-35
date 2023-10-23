@@ -209,8 +209,11 @@ public class ComprasView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBGuardarActionPerformed
 
     private void jBNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNuevaActionPerformed
-            limpiarCampos();
+      limpiarCampos();
         compra = null;
+        DefaultTableModel modelo = (DefaultTableModel) jTabla.getModel();
+    while (modelo.getRowCount() > 0) {
+        modelo.removeRow(0);}
     }//GEN-LAST:event_jBNuevaActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
@@ -218,16 +221,17 @@ public class ComprasView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBSalirActionPerformed
 
     private void jBListarComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBListarComprasActionPerformed
-    DefaultTableModel modelo = (DefaultTableModel) jTabla.getModel();
-    
+     DefaultTableModel modelo = (DefaultTableModel) jTabla.getModel();      
+
+
+    // Limpia la tabla eliminando todas las filas existentes
     while (modelo.getRowCount() > 0) {
         modelo.removeRow(0);
     }
 
+    // Itera sobre la lista de compras y agrega filas a la tabla
     for (Compra todas : compras) {
-        
-            modelo.addRow(new Object[]{todas.getIdCompra(), todas.getProveedor(), todas.getFechaDeCompra()});
-        
+        modelo.addRow(new Object[]{todas.getIdCompra(), todas.getProveedor(), todas.getFechaDeCompra()});
     }
     }//GEN-LAST:event_jBListarComprasActionPerformed
 
