@@ -9,12 +9,12 @@ package Vistas;
  *
  * @author Hp
  */
-public class productoProveedorView extends javax.swing.JInternalFrame {
+public class ProductoProveedorView extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form productoProveedorView
      */
-    public productoProveedorView() {
+    public ProductoProveedorView() {
         initComponents();
     }
 

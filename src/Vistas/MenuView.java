@@ -162,7 +162,7 @@ public class MenuView extends javax.swing.JFrame {
     private void jMenuItemGestionProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGestionProductosActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
-        productoView prodView = new productoView();
+        ProductoView prodView = new ProductoView();
         prodView.setVisible(true);
         escritorio.add(prodView);
         escritorio.moveToFront(prodView);
@@ -189,7 +189,7 @@ public class MenuView extends javax.swing.JFrame {
     private void jMenuItemRegistroComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRegistroComprasActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
-        comprasView comprasView = new comprasView();
+        ComprasView comprasView = new ComprasView();
         comprasView.setVisible(true);
         escritorio.add(comprasView);
         escritorio.moveToFront(comprasView);
@@ -198,7 +198,7 @@ public class MenuView extends javax.swing.JFrame {
     private void jMenuItemProductosXproveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemProductosXproveedorActionPerformed
          escritorio.removeAll();
         escritorio.repaint();
-        productoProveedorView prodProveView = new productoProveedorView();
+        ProductoProveedorView prodProveView = new ProductoProveedorView();
         prodProveView.setVisible(true);
         escritorio.add(prodProveView);
         escritorio.moveToFront(prodProveView);
