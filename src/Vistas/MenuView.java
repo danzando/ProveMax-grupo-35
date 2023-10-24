@@ -160,7 +160,7 @@ public class MenuView extends javax.swing.JFrame {
     private void jMenuItemGestionProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGestionProductosActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
-        ProductoView prodView = new ProductoView();
+        ProductoView prodView = new ProductoView(proDa);
         prodView.setVisible(true);
         escritorio.add(prodView);
         escritorio.moveToFront(prodView);

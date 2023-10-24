@@ -5,18 +5,18 @@ import provemaxgrupo35.accesoDatos.ProductoData;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-public class productoView extends javax.swing.JInternalFrame {
+public class ProductoView extends javax.swing.JInternalFrame {
 
     private ProductoData proDa;
     private Producto productoActual;
 
-    public productoView(ProductoData proDa) {
+    public ProductoView(ProductoData proDa) {
         initComponents();
         productoActual= null;
         this.proDa = proDa;
     }
 
-    productoView() {
+    ProductoView() {
         
     }
 
