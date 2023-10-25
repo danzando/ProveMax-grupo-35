@@ -120,7 +120,7 @@ public class ProductoData {
 
         List<Producto> productos = new ArrayList();
 
-        String sql = "SELECT nombreDelProducto, descripcion, precio, stock FROM Producto WHERE estado = 1"; // agregar nombre columnas en vez de *
+        String sql = "SELECT idProducto, nombreDelProducto, descripcion, precio, stock FROM Producto WHERE estado = 1"; // agregar nombre columnas en vez de *
 
         Producto prod = null;
 
