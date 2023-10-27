@@ -68,16 +68,16 @@ public class StockDeProductoView extends javax.swing.JInternalFrame {
                 jTStockMinActionPerformed(evt);
             }
         });
-        jPanel1.add(jTStockMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 179, -1));
+        jPanel1.add(jTStockMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 179, 20));
 
         jBNueva.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jBNueva.setText("Nueva");
+        jBNueva.setText("Limpiar");
         jBNueva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBNuevaActionPerformed(evt);
             }
         });
-        jPanel1.add(jBNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 140, 150, -1));
+        jPanel1.add(jBNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 500, 190, -1));
 
         jBBuscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jBBuscar.setText("Buscar productos");
@@ -95,7 +95,7 @@ public class StockDeProductoView extends javax.swing.JInternalFrame {
                 jBSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(jBSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 490, 160, -1));
+        jPanel1.add(jBSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 500, 190, -1));
 
         jTabla.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTabla.setModel(new javax.swing.table.DefaultTableModel(
