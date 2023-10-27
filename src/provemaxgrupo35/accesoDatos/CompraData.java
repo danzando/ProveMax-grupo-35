@@ -109,6 +109,43 @@ public class CompraData {
 
         return compras;
     }
+    
+    public List<Compra> ListarComprasPorFecha(LocalDate fechaCompra) {
+        ArrayList<Compra> compras = new ArrayList<>();
+
+        String sql = "select * from compra WHERE fechaDeCompra = ? ";
+        try {
+
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            Date sqlDate = Date.valueOf(fechaCompra);
+            
+            ps.setDate(1,sqlDate);
+                    
+            ResultSet rs = ps.executeQuery();
+while (rs.next()) { // mientras haya filas en rs  ejecuto el while  
+                Compra com = new Compra();
+                ProveedorData pd = new ProveedorData();
+
+                com.setIdCompra(rs.getInt("idCompra"));
+
+                Proveedor pro = pd.buscarProveedor(rs.getInt("idProveedor"));
+                java.sql.Date fechaSql = rs.getDate("fechaDeCompra");
+                LocalDate fecha = fechaSql.toLocalDate();
+                com.setProveedor(pro);
+                com.setFechaDeCompra(fecha);
+
+                compras.add(com);
+
+            }
+
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error de conexion a tabla compras");
+        }
+
+        return compras;
+    }
 
     //Todas las compras a un Proveedor P
     public List<Compra> ComprasPorProveedor(Proveedor proveedor) {
