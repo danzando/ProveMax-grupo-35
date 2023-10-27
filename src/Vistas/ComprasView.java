@@ -144,7 +144,7 @@ public class ComprasView extends javax.swing.JInternalFrame {
                 {null, null, null}
             },
             new String [] {
-                "Id Compra", "Porveedor", "Fecha"
+                "Id Compra", "Proveedor", "Fecha"
             }
         ) {
             Class[] types = new Class [] {

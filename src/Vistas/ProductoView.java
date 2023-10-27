@@ -266,9 +266,11 @@ public class ProductoView extends javax.swing.JInternalFrame {
         try {
             String nombreDelProducto = jTNombre.getText();
             String descripcion = jTDescripcion.getText();
-            double precio = Double.parseDouble(jTPrecio.getText());
-            Integer stock = Integer.parseInt(jTStock.getText());
+            //double precio = Double.parseDouble(jTPrecio.getText());
+            //Integer stock = Integer.parseInt(jTStock.getText());
 
+            
+            
             //  validaciones
             if (nombreDelProducto.isEmpty() || descripcion.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Todos los campos deben completarse");
@@ -282,9 +284,10 @@ public class ProductoView extends javax.swing.JInternalFrame {
             }
 
             // Validación para el campo de precio (double)
+            double precio;
             try {
 
-                //double precio = Double.parseDouble(jTPrecio.getText());
+                 precio = Double.parseDouble(jTPrecio.getText());
                 // Validar que precio sea mayor o igual a cero 
                 if (precio < 0) {
                     JOptionPane.showMessageDialog(this, "El precio debe ser un número mayor o igual a cero.");
@@ -296,8 +299,9 @@ public class ProductoView extends javax.swing.JInternalFrame {
             }
 
             // Validación para el campo de stock (int)
+            int stock;
             try {
-                //Integer stock = Integer.parseInt(jTStock.getText());
+                 stock = Integer.parseInt(jTStock.getText());
                 // Validar que stock sea mayor o igual a cero si es necesario
                 if (stock < 0) {
                     JOptionPane.showMessageDialog(this, "El stock debe ser un número entero");
@@ -362,25 +366,34 @@ public class ProductoView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBlimpiarActionPerformed
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
-        try {
-            int idProducto = Integer.parseInt(jTIdProducto.getText());
+        String entrada = jTIdProducto.getText();
 
-            productoActual = proDa.buscarProducto(idProducto);
+        if (entrada.isEmpty()) {
 
-            if (productoActual != null) {
+            JOptionPane.showMessageDialog(this, "El campo IdProducto debe completarse");
+        } else {
 
-                jTNombre.setText(productoActual.getNombreDelProducto());
-                jTDescripcion.setText(productoActual.getDescripcion());
-                jTPrecio.setText(String.valueOf(productoActual.getPrecio())); //convertir los valores numéricos en cadenas
-                jTStock.setText(String.valueOf(productoActual.getStock()));
-                jREstado.setSelected(productoActual.isEstado());
+            try {
+                int idProducto = Integer.parseInt(jTIdProducto.getText());
 
+                productoActual = proDa.buscarProducto(idProducto);
+
+                if (productoActual != null) {
+
+                    jTNombre.setText(productoActual.getNombreDelProducto());
+                    jTDescripcion.setText(productoActual.getDescripcion());
+                    jTPrecio.setText(String.valueOf(productoActual.getPrecio())); //convertir los valores numéricos en cadenas
+                    jTStock.setText(String.valueOf(productoActual.getStock()));
+                    jREstado.setSelected(productoActual.isEstado());
+
+                }
+
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Datos incorrectos");
             }
-
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Ingrese numeros válidos");
-        }
     }//GEN-LAST:event_jBBuscarActionPerformed
+
+    }
 
     private boolean contieneLetras(String texto) {
         return texto.matches(".*[a-zA-Z].*");
