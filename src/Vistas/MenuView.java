@@ -38,6 +38,7 @@ public class MenuView extends javax.swing.JFrame {
         jMenuItemRegistroCompras = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         jMenuItemDetalleCompras = new javax.swing.JMenuItem();
+        jMHistorial = new javax.swing.JMenuItem();
         jMsalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -109,6 +110,11 @@ public class MenuView extends javax.swing.JFrame {
 
         jMcompras.setText("COMPRAS");
         jMcompras.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jMcompras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMcomprasActionPerformed(evt);
+            }
+        });
 
         jMenuItemRegistroCompras.setText("Registro de Compras");
         jMenuItemRegistroCompras.addActionListener(new java.awt.event.ActionListener() {
@@ -126,6 +132,14 @@ public class MenuView extends javax.swing.JFrame {
             }
         });
         jMcompras.add(jMenuItemDetalleCompras);
+
+        jMHistorial.setText("Historial de compras");
+        jMHistorial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMHistorialActionPerformed(evt);
+            }
+        });
+        jMcompras.add(jMHistorial);
 
         jMenuBar1.add(jMcompras);
 
@@ -224,6 +238,19 @@ public class MenuView extends javax.swing.JFrame {
         escritorio.moveToFront(sdp);
     }//GEN-LAST:event_jMStockProductosActionPerformed
 
+    private void jMcomprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMcomprasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMcomprasActionPerformed
+
+    private void jMHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMHistorialActionPerformed
+       escritorio.removeAll();
+        escritorio.repaint();
+        HistorialDeCompras hdc= new HistorialDeCompras();
+        hdc.setVisible(true);
+        escritorio.add(hdc);
+        escritorio.moveToFront(hdc);  // TODO add your handling code here:
+    }//GEN-LAST:event_jMHistorialActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -264,6 +291,7 @@ public class MenuView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorio;
+    private javax.swing.JMenuItem jMHistorial;
     private javax.swing.JMenuItem jMStockProductos;
     private javax.swing.JMenu jMcompras;
     private javax.swing.JMenuBar jMenuBar1;

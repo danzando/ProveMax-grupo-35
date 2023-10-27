@@ -68,7 +68,7 @@ public class StockDeProductoView extends javax.swing.JInternalFrame {
                 jTStockMinActionPerformed(evt);
             }
         });
-        jPanel1.add(jTStockMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 179, 20));
+        jPanel1.add(jTStockMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 179, 30));
 
         jBNueva.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jBNueva.setText("Limpiar");
