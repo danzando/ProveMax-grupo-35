@@ -175,15 +175,16 @@ public class ProductoData {
     }
 
     //Aquellos productos están por debajo del stock mínimo
-    public List<Producto> ListarProMin() {
+    public List<Producto> ListarProMin(int minimo) {
 
         List<Producto> productos = new ArrayList<>();
 
-        String sql = "SELECT idProducto, nombreDelProducto, descripcion, precio, stock FROM producto WHERE estado = 1 AND stock <=10 ";
+        String sql = "SELECT idProducto, nombreDelProducto, descripcion, precio, stock FROM producto WHERE estado = 1 AND stock <=? ";
 
         try {
 
             PreparedStatement ps = con.prepareStatement(sql);
+             ps.setInt(1, minimo);
             ResultSet rs = ps.executeQuery();
 
             Producto prod = null;

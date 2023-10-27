@@ -31,6 +31,7 @@ public class MenuView extends javax.swing.JFrame {
         jMproducto = new javax.swing.JMenu();
         jMenuItemGestionProductos = new javax.swing.JMenuItem();
         jMenuItemProductosXproveedor = new javax.swing.JMenuItem();
+        jMStockProductos = new javax.swing.JMenuItem();
         jMproveedores = new javax.swing.JMenu();
         jMenuItemGestionProveedores = new javax.swing.JMenuItem();
         jMcompras = new javax.swing.JMenu();
@@ -41,7 +42,7 @@ public class MenuView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        escritorio.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(51, 51, 51))); // NOI18N
+        escritorio.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(51, 51, 51))); // NOI18N
         escritorio.setForeground(new java.awt.Color(102, 102, 0));
         escritorio.setDesktopManager(null);
         escritorio.setDragMode(javax.swing.JDesktopPane.OUTLINE_DRAG_MODE);
@@ -82,6 +83,14 @@ public class MenuView extends javax.swing.JFrame {
             }
         });
         jMproducto.add(jMenuItemProductosXproveedor);
+
+        jMStockProductos.setText("Stock de Productos");
+        jMStockProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMStockProductosActionPerformed(evt);
+            }
+        });
+        jMproducto.add(jMStockProductos);
 
         jMenuBar1.add(jMproducto);
 
@@ -206,6 +215,15 @@ public class MenuView extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jMsalirMouseClicked
 
+    private void jMStockProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMStockProductosActionPerformed
+       escritorio.removeAll();
+        escritorio.repaint();
+        StockDeProductoView sdp= new StockDeProductoView();
+        sdp.setVisible(true);
+        escritorio.add(sdp);
+        escritorio.moveToFront(sdp);
+    }//GEN-LAST:event_jMStockProductosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -246,6 +264,7 @@ public class MenuView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorio;
+    private javax.swing.JMenuItem jMStockProductos;
     private javax.swing.JMenu jMcompras;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItemDetalleCompras;

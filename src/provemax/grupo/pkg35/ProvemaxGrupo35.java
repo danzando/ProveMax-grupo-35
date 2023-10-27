@@ -97,11 +97,11 @@ public class ProvemaxGrupo35 {
         //}
         
         //STOCK MINIMO
-        for (Producto producto : proDa.ListarProMin()) {
-            if (producto.getStock() < 10) {
-
-                System.out.println(producto.getNombreDelProducto() + " (stock: " + producto.getStock() + ")");
-            }
-        }
+//        for (Producto producto : proDa.ListarProMin(5)) {
+//            if (producto.getStock() < 10) {
+//
+//                System.out.println(producto.getNombreDelProducto() + " (stock: " + producto.getStock() + ")");
+//            }
+//        }
     }
 }
