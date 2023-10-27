@@ -19,12 +19,12 @@ public class ProveedorView extends javax.swing.JInternalFrame {
 
     Proveedor prov = null;
     ProveedorData pd = new ProveedorData();
-     private DefaultTableModel modelo;
+    private DefaultTableModel modelo;
     private List<Proveedor> proveedores;
 
     public ProveedorView() {
         initComponents();
-          modelo = (DefaultTableModel) jTabla.getModel();
+        modelo = (DefaultTableModel) jTabla.getModel();
         proveedores = pd.listarProveedores();
     }
 
@@ -283,9 +283,10 @@ public class ProveedorView extends javax.swing.JInternalFrame {
     private void jBNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNuevoActionPerformed
         limpiarCampos();
         prov = null;
-         DefaultTableModel modelo = (DefaultTableModel) jTabla.getModel();
-    while (modelo.getRowCount() > 0) {
-        modelo.removeRow(0);}
+        DefaultTableModel modelo = (DefaultTableModel) jTabla.getModel();
+        while (modelo.getRowCount() > 0) {
+            modelo.removeRow(0);
+        }
     }//GEN-LAST:event_jBNuevoActionPerformed
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
@@ -360,7 +361,7 @@ public class ProveedorView extends javax.swing.JInternalFrame {
 
         // Itera sobre la lista de compras y agrega filas a la tabla
         for (Proveedor todos : proveedores) {
-            modelo.addRow(new Object[]{todos.getIdProveedor(), todos.getRazonSocial(), todos.getDomicilio(), todos.getTelefono(),todos.getMail()});
+            modelo.addRow(new Object[]{todos.getIdProveedor(), todos.getRazonSocial(), todos.getDomicilio(), todos.getTelefono(), todos.getMail()});
         }
     }//GEN-LAST:event_jBListarActionPerformed
 

@@ -2,7 +2,6 @@ package provemaxgrupo35.accesoDatos;
 
 import ProvemaxEntidades.*;
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;

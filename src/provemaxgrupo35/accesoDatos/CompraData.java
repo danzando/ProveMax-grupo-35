@@ -1,14 +1,7 @@
 package provemaxgrupo35.accesoDatos;
 
-import ProvemaxEntidades.Compra;
-import ProvemaxEntidades.Producto;
-import ProvemaxEntidades.Proveedor;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import ProvemaxEntidades.*;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;

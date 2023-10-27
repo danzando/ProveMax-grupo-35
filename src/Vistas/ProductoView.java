@@ -2,7 +2,6 @@ package Vistas;
 
 import ProvemaxEntidades.Producto;
 import provemaxgrupo35.accesoDatos.ProductoData;
-import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class ProductoView extends javax.swing.JInternalFrame {
@@ -12,15 +11,13 @@ public class ProductoView extends javax.swing.JInternalFrame {
 
     public ProductoView(ProductoData proDa) {
         initComponents();
-        productoActual= null;
+        productoActual = null;
         this.proDa = proDa;
     }
 
     ProductoView() {
-        
+
     }
-
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -87,7 +84,7 @@ public class ProductoView extends javax.swing.JInternalFrame {
         jTStock.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jBRegistrar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jBRegistrar.setText("Registrar");
+        jBRegistrar.setText("Registrar/Actualizar");
         jBRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBRegistrarActionPerformed(evt);
@@ -182,7 +179,7 @@ public class ProductoView extends javax.swing.JInternalFrame {
                                 .addComponent(jTStock, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(98, 98, 98)
                                 .addComponent(jLEstado)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                                 .addComponent(jREstado)
                                 .addGap(323, 323, 323))
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -286,8 +283,8 @@ public class ProductoView extends javax.swing.JInternalFrame {
 
             // Validación para el campo de precio (double)
             try {
-               
-                precio = Double.parseDouble(jTPrecio.getText());
+
+                //double precio = Double.parseDouble(jTPrecio.getText());
                 // Validar que precio sea mayor o igual a cero 
                 if (precio < 0) {
                     JOptionPane.showMessageDialog(this, "El precio debe ser un número mayor o igual a cero.");
@@ -300,7 +297,7 @@ public class ProductoView extends javax.swing.JInternalFrame {
 
             // Validación para el campo de stock (int)
             try {
-               //Integer stock = Integer.parseInt(jTStock.getText());
+                //Integer stock = Integer.parseInt(jTStock.getText());
                 // Validar que stock sea mayor o igual a cero si es necesario
                 if (stock < 0) {
                     JOptionPane.showMessageDialog(this, "El stock debe ser un número entero");
@@ -311,10 +308,9 @@ public class ProductoView extends javax.swing.JInternalFrame {
                 return;
             }
 
-            // Crear o modificar el producto
-           
             Boolean estado = jREstado.isSelected();
 
+            // Crear o modificar el producto
             if (productoActual == null) {
 
                 productoActual = new Producto(nombreDelProducto, descripcion, precio, stock, estado);
@@ -328,7 +324,7 @@ public class ProductoView extends javax.swing.JInternalFrame {
             }
 
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Ingrese numero válido");
+            JOptionPane.showMessageDialog(this, "Ingrese numeros válidos");
 
         }
 
@@ -343,11 +339,17 @@ public class ProductoView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBSalirMouseClicked
 
     private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
-               if (productoActual != null) {
+        if (productoActual != null) {
+            int confirmacion = JOptionPane.showConfirmDialog(this, "¿Seguro que desea eliminar este producto?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
 
-            proDa.eliminarProducto(productoActual.getIdProducto());
-            productoActual = null;
-            limpiarCampos();
+            if (confirmacion == JOptionPane.YES_OPTION) {
+                proDa.eliminarProducto(productoActual.getIdProducto());
+                productoActual = null;
+                limpiarCampos();
+            } else {
+                // El usuario canceló la eliminación
+                // No se realiza ninguna acción adicional
+            }
         } else {
 
             JOptionPane.showMessageDialog(this, "Debe seleccionar un producto");
@@ -360,26 +362,22 @@ public class ProductoView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBlimpiarActionPerformed
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
-        try{
+        try {
             int idProducto = Integer.parseInt(jTIdProducto.getText());
-            
-            productoActual=proDa.buscarProducto(idProducto);
-            
+
+            productoActual = proDa.buscarProducto(idProducto);
+
             if (productoActual != null) {
 
-               
                 jTNombre.setText(productoActual.getNombreDelProducto());
                 jTDescripcion.setText(productoActual.getDescripcion());
                 jTPrecio.setText(String.valueOf(productoActual.getPrecio())); //convertir los valores numéricos en cadenas
                 jTStock.setText(String.valueOf(productoActual.getStock()));
                 jREstado.setSelected(productoActual.isEstado());
-                
-                
 
             }
 
-        
-        }catch(NumberFormatException e) {
+        } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Ingrese numeros válidos");
         }
     }//GEN-LAST:event_jBBuscarActionPerformed
@@ -418,12 +416,12 @@ public class ProductoView extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     private void limpiarCampos() {
-      jTIdProducto.setText("");
-      jTNombre.setText("");
-      jTDescripcion.setText("");
-      jTPrecio.setText("");
-      jTStock.setText("");
-      jREstado.setSelected(true);
+        jTIdProducto.setText("");
+        jTNombre.setText("");
+        jTDescripcion.setText("");
+        jTPrecio.setText("");
+        jTStock.setText("");
+        jREstado.setSelected(true);
     }
 
 }
