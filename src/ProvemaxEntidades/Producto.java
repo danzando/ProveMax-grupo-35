@@ -99,15 +99,8 @@ public class Producto {
 
     @Override
     public String toString() {
-        return   nombreDelProducto+ " "  + descripcion + ", precio:" + precio ;
+        return   nombreDelProducto+ " , "  + descripcion + ", precio: " + precio ;
     }
 
-    public void setNombreProd(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-  
-
-  
-
+   
 }
