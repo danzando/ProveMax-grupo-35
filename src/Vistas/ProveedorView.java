@@ -223,11 +223,7 @@ public class ProveedorView extends javax.swing.JInternalFrame {
 
     private void jBNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNuevoActionPerformed
         limpiarCampos();
-        prov = null;
-        DefaultTableModel modelo = (DefaultTableModel) jTabla.getModel();
-        while (modelo.getRowCount() > 0) {
-            modelo.removeRow(0);
-        }
+        
     }//GEN-LAST:event_jBNuevoActionPerformed
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
@@ -249,7 +245,7 @@ public class ProveedorView extends javax.swing.JInternalFrame {
 
                 }
             } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(this, "Se ha ingresado un dato incorrecto, intente nuevamente");
+                JOptionPane.showMessageDialog(this, "El id solo debe contener números");
                 limpiarCampos();
             }
 
@@ -357,5 +353,10 @@ private void limpiarCampos() {
         jTDomicilio.setText("");
         jTTelefono.setText("");
         jTMail.setText("");
+        prov = null;
+        DefaultTableModel modelo = (DefaultTableModel) jTabla.getModel();
+        while (modelo.getRowCount() > 0) {
+            modelo.removeRow(0);
+        }
     }
 }
