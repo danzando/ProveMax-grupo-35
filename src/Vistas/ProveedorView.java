@@ -245,7 +245,7 @@ public class ProveedorView extends javax.swing.JInternalFrame {
 
                 }
             } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(this, "El id solo debe contener números");
+                JOptionPane.showMessageDialog(this, "El IdProveedor solo debe contener números");
                 limpiarCampos();
             }
 

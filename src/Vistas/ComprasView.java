@@ -210,10 +210,7 @@ public class ComprasView extends javax.swing.JInternalFrame {
 
     private void jBNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNuevaActionPerformed
       limpiarCampos();
-        compra = null;
-        DefaultTableModel modelo = (DefaultTableModel) jTabla.getModel();
-    while (modelo.getRowCount() > 0) {
-        modelo.removeRow(0);}
+        
     }//GEN-LAST:event_jBNuevaActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
@@ -282,5 +279,10 @@ private void limpiarCampos() {
         jTIdCompra.setText("");
         jTIdProveedor.setText("");
         jDFecha.setDate(null);
+        compra = null;
+        DefaultTableModel modelo = (DefaultTableModel) jTabla.getModel();
+    while (modelo.getRowCount() > 0) {
+        modelo.removeRow(0);}
+    } 
 
-}}
+}
