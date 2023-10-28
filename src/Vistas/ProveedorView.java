@@ -62,28 +62,37 @@ public class ProveedorView extends javax.swing.JInternalFrame {
         jPanel1.setBackground(new java.awt.Color(102, 102, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(800, 600));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 600));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 28)); // NOI18N
         jLabel1.setText("Proveedores");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(324, 19, -1, -1));
 
         jLIdProveedor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLIdProveedor.setText("Id de proveedor");
+        jPanel1.add(jLIdProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 75, -1, -1));
 
         jLRazonSocial.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLRazonSocial.setText("Razon social");
+        jPanel1.add(jLRazonSocial, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 99, -1));
 
         jLDomicilio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLDomicilio.setText("Domicilio");
+        jPanel1.add(jLDomicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 99, -1));
 
         jLTelefono.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLTelefono.setText("Telefono");
+        jPanel1.add(jLTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 99, -1));
 
         jLMail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLMail.setText("Mail");
+        jPanel1.add(jLMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 221, 99, -1));
 
         jTIdProveedor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel1.add(jTIdProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(341, 72, 205, -1));
 
         jTRazonSocial.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel1.add(jTRazonSocial, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 205, -1));
 
         jTDomicilio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTDomicilio.addActionListener(new java.awt.event.ActionListener() {
@@ -91,8 +100,15 @@ public class ProveedorView extends javax.swing.JInternalFrame {
                 jTDomicilioActionPerformed(evt);
             }
         });
+        jPanel1.add(jTDomicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, 205, -1));
 
         jTTelefono.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTTelefonoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, 205, -1));
 
         jTMail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTMail.addActionListener(new java.awt.event.ActionListener() {
@@ -100,6 +116,7 @@ public class ProveedorView extends javax.swing.JInternalFrame {
                 jTMailActionPerformed(evt);
             }
         });
+        jPanel1.add(jTMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, 205, -1));
 
         jBNuevo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jBNuevo.setText("Nuevo");
@@ -108,6 +125,7 @@ public class ProveedorView extends javax.swing.JInternalFrame {
                 jBNuevoActionPerformed(evt);
             }
         });
+        jPanel1.add(jBNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 280, 160, -1));
 
         jBBuscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jBBuscar.setText("Buscar");
@@ -116,6 +134,7 @@ public class ProveedorView extends javax.swing.JInternalFrame {
                 jBBuscarActionPerformed(evt);
             }
         });
+        jPanel1.add(jBBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(587, 71, 92, -1));
 
         jBGuardar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jBGuardar.setText("Guardar");
@@ -124,6 +143,7 @@ public class ProveedorView extends javax.swing.JInternalFrame {
                 jBGuardarActionPerformed(evt);
             }
         });
+        jPanel1.add(jBGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(341, 280, 160, -1));
 
         jBSalir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jBSalir.setText("Salir");
@@ -132,6 +152,7 @@ public class ProveedorView extends javax.swing.JInternalFrame {
                 jBSalirActionPerformed(evt);
             }
         });
+        jPanel1.add(jBSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(645, 504, 114, -1));
 
         jTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -161,6 +182,8 @@ public class ProveedorView extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jTabla);
 
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 340, 701, 116));
+
         jBListar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jBListar.setText("Listar Proveedores");
         jBListar.addActionListener(new java.awt.event.ActionListener() {
@@ -168,89 +191,7 @@ public class ProveedorView extends javax.swing.JInternalFrame {
                 jBListarActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLIdProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLRazonSocial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLDomicilio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLMail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTRazonSocial, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
-                            .addComponent(jTDomicilio)
-                            .addComponent(jTTelefono, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTIdProveedor)
-                            .addComponent(jTMail))
-                        .addGap(41, 41, 41)
-                        .addComponent(jBBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(80, 80, 80))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jBSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jBNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(98, 98, 98)
-                        .addComponent(jBListar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(41, 41, 41))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(324, 324, 324)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLDomicilio)
-                        .addGap(27, 27, 27))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLIdProveedor)
-                                    .addComponent(jTIdProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jBBuscar))
-                                .addGap(40, 40, 40))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLRazonSocial)
-                                .addComponent(jTRazonSocial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addComponent(jTDomicilio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLTelefono))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTMail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLMail))
-                .addGap(39, 39, 39)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBNuevo)
-                    .addComponent(jBGuardar)
-                    .addComponent(jBListar))
-                .addGap(35, 35, 35)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addComponent(jBSalir)
-                .addContainerGap(53, Short.MAX_VALUE))
-        );
+        jPanel1.add(jBListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(599, 280, 160, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -316,35 +257,54 @@ public class ProveedorView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBBuscarActionPerformed
 
     private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
-        try {
+         try {
+        String razonSocial = jTRazonSocial.getText();
+        String domicilio = jTDomicilio.getText();
+        String telefono = jTTelefono.getText();
+        String mail = jTMail.getText();
 
-            String razonSocial = jTRazonSocial.getText();
-            String domicilio = jTDomicilio.getText();
-            String telefono = jTTelefono.getText();
-            String mail = jTMail.getText();
+        if (razonSocial.isEmpty() || domicilio.isEmpty() || telefono.isEmpty() || mail.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "No puede haber campos vacíos");
+            return;
+        }
 
-            if (razonSocial.isEmpty() || domicilio.isEmpty() || telefono.isEmpty() || mail.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "No puede haber campos vacíos");
-                return;
-            }
+        if (!razonSocial.matches(".*[a-zA-Z].*")) {
+            JOptionPane.showMessageDialog(this, "La razón social debe contener al menos una letra");
+            return;
+        }
 
-            if (prov == null) {
-                prov = new Proveedor(razonSocial, domicilio, telefono, mail);
-                pd.registrarProveedor(prov);
+        if (!domicilio.matches(".*\\d.*")) {
+            JOptionPane.showMessageDialog(this, "El domicilio debe contener al menos un número");
+            return;
+        }
 
-            } else {
+        if (!telefono.matches("\\d+")) {
+            JOptionPane.showMessageDialog(this, "El teléfono debe contener solo números");
+            return;
+        }
+
+        if (!mail.contains("@")) {
+            JOptionPane.showMessageDialog(this, "El correo electrónico debe contener un símbolo '@'");
+            return;
+        }
+
+        if (prov == null) {
+            prov = new Proveedor(razonSocial, domicilio, telefono, mail);
+            pd.registrarProveedor(prov);
+        } else {
+            int confirmacion = JOptionPane.showConfirmDialog(this, "¿Está seguro de que desea modificar los datos?");
+            if (confirmacion == JOptionPane.YES_OPTION) {
                 prov.setRazonSocial(razonSocial);
                 prov.setDomicilio(domicilio);
                 prov.setTelefono(telefono);
                 prov.setMail(mail);
                 pd.modificarProveedor(prov);
-
             }
-
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Se ha ingresado un dato incorrecto, intente nuevamente");
-            limpiarCampos();
         }
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Se ha ingresado un dato incorrecto, intente nuevamente");
+        limpiarCampos();
+    }
     }//GEN-LAST:event_jBGuardarActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
@@ -364,6 +324,10 @@ public class ProveedorView extends javax.swing.JInternalFrame {
             modelo.addRow(new Object[]{todos.getIdProveedor(), todos.getRazonSocial(), todos.getDomicilio(), todos.getTelefono(), todos.getMail()});
         }
     }//GEN-LAST:event_jBListarActionPerformed
+
+    private void jTTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTTelefonoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
