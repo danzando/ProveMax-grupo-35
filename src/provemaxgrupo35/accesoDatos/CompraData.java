@@ -262,7 +262,7 @@ while (rs.next()) { // mientras haya filas en rs  ejecuto el while
 
         List<Producto> pmc = new ArrayList<>();
 
-        String sql = " SELECT p.idProducto, p.nombreDelProducto, p.descripcion, SUM(dc.cantidad) AS cantidadComprada "
+        String sql = " SELECT p.idProducto, p.nombreDelProducto, p.descripcion,p.precio,p.stock, SUM(dc.cantidad) AS cantidadComprada "
                 + " FROM DetalleDeCompra dc "
                 + " JOIN Compra c ON dc.idCompra = c.idCompra "
                 + " JOIN Producto p ON dc.idProducto = p.idProducto "

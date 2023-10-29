@@ -102,20 +102,20 @@ CompraData cd = new CompraData();
 
         jTProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Nombre", "Descripcion", " Precio"
+                "id", "Nombre", "Descripcion", " Precio"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Double.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -255,7 +255,7 @@ CompraData cd = new CompraData();
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 617, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -319,7 +319,7 @@ CompraData cd = new CompraData();
            
          for (Producto xp : lpc) {
            
-          modelo2.addRow(new Object[] {xp.getNombreDelProducto(), xp.getDescripcion(),xp.getPrecio()} );
+          modelo2.addRow(new Object[] {xp.getIdProducto(),xp.getNombreDelProducto(), xp.getDescripcion(),xp.getPrecio()} );
           
          }
                   
@@ -356,7 +356,7 @@ CompraData cd = new CompraData();
            
          for (Producto xp : lpc) {
            
-          modelo2.addRow(new Object[] {xp.getNombreDelProducto(), xp.getDescripcion(),xp.getPrecio()} );
+          modelo2.addRow(new Object[] {xp.getIdProducto(),xp.getNombreDelProducto(), xp.getDescripcion(),xp.getPrecio()} );
                          
                            // TODO add your handling code here:
     }//GEN-LAST:event_jBPEntreFechasActionPerformed
