@@ -14,94 +14,94 @@ public class ProvemaxGrupo35 {
 
         ProductoData proDa = new ProductoData();
 
-        // REGISTRAR PRODUCTO:
-        // Producto p = new Producto("Batidora", "Luna", 20000, 8, true);
-        //proDa.registrarProducto(p);
+//         REGISTRAR PRODUCTO:
+//         Producto p = new Producto("Batidora", "Luna", 20000, 8, true);
+//        proDa.registrarProducto(p);
 
-        //BUSCAR PRODUCTO
-        //proDa.buscarProducto(11);
-        //System.out.println(proDa.buscarProducto(11));
+//        BUSCAR PRODUCTO
+//        proDa.buscarProducto(11);
+//        System.out.println(proDa.buscarProducto(11));
+//        
+//        MODIFICAR PRODUCTO
+//        Producto p = new Producto(11,"Ventilador", "Liliana", 30000, 15, true);
+//        proDa.modificarProducto(p); 
+//        System.out.println(p);
         
-        //MODIFICAR PRODUCTO
-        //Producto p = new Producto(11,"Ventilador", "Liliana", 30000, 15, true);
-        //proDa.modificarProducto(p); 
-        //System.out.println(p);
+//        LISTAR PRODUCTOS
+//          proDa.listarProductos();   
+//          for (Producto producto: proDa.listarProductos()) {
+//              System.out.println(producto);
+//         }
         
-        //LISTAR PRODUCTOS
-        //  proDa.listarProductos();   
-        //  for (Producto producto: proDa.listarProductos()) {
-        //      System.out.println(producto);
-        // }
+//         ELIMINAR PRODUCTO
+//        proDa.eliminarProducto(11);
         
-        // ELIMINAR PRODUCTO
-        //proDa.eliminarProducto(11);
-        
-        //REGISTRAR PROVEEDOR
+//        REGISTRAR PROVEEDOR
         ProveedorData pd = new ProveedorData();
-        //Proveedor pro= new Proveedor("Maxiconsumo","Ruta 7 K30","2664444444","maxiconsumo@gmail.com");
-        //pd.registrarProveedor(pro);
+//        Proveedor pro= new Proveedor("Maxiconsumo","Ruta 7 K30","2664444444","maxiconsumo@gmail.com");
+//        pd.registrarProveedor(pro);
 
-        //BUSCAR PROVEEDOR
-        //System.out.println(pd.buscarProveedor(1));
+//        BUSCAR PROVEEDOR
+//        System.out.println(pd.buscarProveedor(1));
         
-        //MODIFICAR PROVEEDOR
-        //Proveedor prob= new Proveedor(8,"Maxiconsumo","Ruta 7","2664444444","maxiconsumo@gmail.com");
-        //pd.modificarProveedor(prob);
-        //System.out.println(prob);
+//        MODIFICAR PROVEEDOR
+//        Proveedor prob= new Proveedor(8,"Maxiconsumo","Ruta 7","2664444444","maxiconsumo@gmail.com");
+//        pd.modificarProveedor(prob);
+//        System.out.println(prob);
         
-        //LISTAR PROVEEDOR
-        //for (Proveedor proveedor: pd.listarProveedores()) {
-        //  System.out.println(proveedor);
+//        LISTAR PROVEEDOR
+//        for (Proveedor proveedor: pd.listarProveedores()) {
+//          System.out.println(proveedor);
         
-        //REGISTRAR COMPRA
-        //Proveedor pro=pd.buscarProveedor(1);
+//        REGISTRAR COMPRA
+//        Proveedor pro=pd.buscarProveedor(1);
         CompraData cd = new CompraData();
-        //LocalDate fecha = LocalDate.of(2023, 04, 01);
-        //Compra com= new Compra(pro,fecha);
-        //cd.registrarCompra(com);
+//        LocalDate fecha = LocalDate.of(2023, 04, 01);
+//        Compra com= new Compra(pro,fecha);
+//        cd.registrarCompra(com);
 
-        //BUSCAR COMPRA
-        // System.out.println(cd.buscarCompra(5));
+//        BUSCAR COMPRA
+//         System.out.println(cd.buscarCompra(5));
         
-        //LISTAR COMPRAS
-        //   for (Compra compras : cd.ListarCompras()) {
-        //       System.out.println(compras);
-        //        }
+//        LISTAR COMPRAS
+//           for (Compra compras : cd.ListarCompras()) {
+//               System.out.println(compras);
+//                }
         
-        //COMPRAS POR PROVEEDOR
-        //Proveedor pro = pd.buscarProveedor(10);
-        //  for (Compra xproveedor : cd.ComprasPorProveedor(pro)) {
-        //      System.out.println(xproveedor);
-        // }
+//        COMPRAS POR PROVEEDOR
+//        Proveedor pro = pd.buscarProveedor(10);
+//          for (Compra xproveedor : cd.ComprasPorProveedor(pro)) {
+//              System.out.println(xproveedor);
+//         }
         
-        //TODOS LOS PRODUCTOS DE UNA COMPRA EN UNA FECHA ESPECIFICA
-        //  for (Producto productosComprados : proDa.listarProductosCompradosPorFecha(LocalDate.of(2023, 10, 9))) {
-        //      System.out.println(productosComprados);
-        // }
+//        TODOS LOS PRODUCTOS DE UNA COMPRA EN UNA FECHA ESPECIFICA
+//          for (Producto productosComprados : cd.listarProductosCompradosPorFecha(LocalDate.of(2023, 10, 9))) {
+//              System.out.println(productosComprados);
+//         }
         
-        //MOSTRAR QUE PROVEEDORES, PROVEEN EL PRODUCTO 
-        //Producto prob = proDa.buscarProducto(2);
-        //  for (Proveedor proveedores : pd.obtenerProveedoresDelProducto(prob)) {
-        //      System.out.println(proveedores);
-        //  }
+////        MOSTRAR QUE PROVEEDORES, PROVEEN EL PRODUCTO 
+//        Producto prob = proDa.buscarProducto(2);
+//          for (Proveedor proveedores : pd.obtenerProveedoresDelProducto(prob)) {
+//              System.out.println(proveedores);
+//          }
         
-        //TODOS LOS PRODUCTOS DE UNA COMPRA EN PARTICULAR
-        //  for (Producto productos : proDa.ProductosDeCompraParticular(cd.buscarCompra(6))) {
-        //      System.out.println(productos);
-        //  }
+//        TODOS LOS PRODUCTOS DE UNA COMPRA EN PARTICULAR
+//          for (Producto productos : cd.ProductosDeCompraParticular(cd.buscarCompra(6))) {
+//              System.out.println(productos);
+//          }
         
-        //PRODUCTOS MAS COMPRADOS ENTRE FECHAS
-        for (Producto productosMasC : cd.MasCompradosEntreFechas(LocalDate.of(2023, 8, 01), LocalDate.of(2023, 10, 18))) {
-         System.out.println(productosMasC);
-        }
-        }
+//        PRODUCTOS MAS COMPRADOS ENTRE FECHAS
+//        for (Producto productosMasC : cd.MasCompradosEntreFechas(LocalDate.of(2023, 8, 01), LocalDate.of(2023, 10, 18))) {
+//         System.out.println(productosMasC);
+//        }
+//        }
         
-        //STOCK MINIMO
+//        STOCK MINIMO
 //        for (Producto producto : proDa.ListarProMin(5)) {
 //            if (producto.getStock() < 10) {
 //
 //                System.out.println(producto.getNombreDelProducto() + " (stock: " + producto.getStock() + ")");
 //            }
-//        }
+        }
     }
 

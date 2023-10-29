@@ -166,7 +166,7 @@ if (input.isEmpty()) {
 //        }
         }
     } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(this, "Se ha ingresado un dato incorrecto, intente nuevamente.");
+        JOptionPane.showMessageDialog(this, "Debe ingresar un número entero, intente nuevamente.");
         limpiarCampos();
     }
 }
