@@ -15,8 +15,8 @@ public class ProvemaxGrupo35 {
         ProductoData proDa = new ProductoData();
 
         // REGISTRAR PRODUCTO:
-        Producto p = new Producto("Batidora", "Luna", 20000, 8, true);
-        proDa.registrarProducto(p);
+        // Producto p = new Producto("Batidora", "Luna", 20000, 8, true);
+        //proDa.registrarProducto(p);
 
         //BUSCAR PRODUCTO
         //proDa.buscarProducto(11);
@@ -91,10 +91,10 @@ public class ProvemaxGrupo35 {
         //  }
         
         //PRODUCTOS MAS COMPRADOS ENTRE FECHAS
-        //for (Producto productosMasC : proDa.masCompradosEntreFechas(LocalDate.of(2023, 8, 01), LocalDate.of(2023, 10, 18))) {
-        // System.out.println(productosMasC);
-        //}
-        //}
+        for (Producto productosMasC : cd.MasCompradosEntreFechas(LocalDate.of(2023, 8, 01), LocalDate.of(2023, 10, 18))) {
+         System.out.println(productosMasC);
+        }
+        }
         
         //STOCK MINIMO
 //        for (Producto producto : proDa.ListarProMin(5)) {
@@ -104,4 +104,4 @@ public class ProvemaxGrupo35 {
 //            }
 //        }
     }
-}
+
