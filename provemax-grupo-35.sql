@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-10-2023 a las 23:34:57
+-- Tiempo de generación: 30-10-2023 a las 02:24:18
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -69,14 +69,11 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`idProducto`, `nombreDelProducto`, `descripcion`, `precio`, `stock`, `estado`) VALUES
-(1, 'Smart Tv ', 'Sony Full HD de 32', 0.00, 50, 0),
-(2, 'Heladera', 'No Frost Samsung', 0.00, 10, 0),
-(3, ' Lavarropas', 'Automático Drean 8Kg', 0.00, 8, 0),
-(4, 'Cafetera Express', ' Nespresso', 0.00, 6, 0),
-(5, 'Pava Eléctrica', 'Philips', 0.00, 12, 0),
-(6, 'Microondas', 'Sigma 20Lt', 0.00, 16, 0),
-(9, 'Aspiradora', 'Electrolux Home', 130000.00, 22, 1),
-(11, 'Batidora', 'Liliana', 30000.00, 15, 0);
+(1, 'Smart Tv ', 'Sony Full HD de 32', 152000.00, 50, 1),
+(3, ' Lavarropas', 'Automático Whirlpool 8Kg', 53000.00, 8, 1),
+(4, 'Cafetera Express', 'Sony', 3200.00, 6, 1),
+(5, 'Pava Eléctrica', 'Philips', 0.00, 12, 1),
+(6, 'Microondas', 'Phillips 20Lt', 6500.00, 16, 1);
 
 -- --------------------------------------------------------
 
@@ -99,9 +96,7 @@ CREATE TABLE `proveedor` (
 INSERT INTO `proveedor` (`idProveedor`, `razonSocial`, `domicilio`, `telefono`, `mail`) VALUES
 (1, 'Sony S.A', 'Poligono industrial Pilar', '123456', 'sony@gmail.com'),
 (2, 'Whirlpool', 'Parque Industrial Fatima', '812654', 'whirlpool@gmail.com'),
-(3, 'Nespresso', 'Av. Lus Maria Campos 900', '963258', 'nespreso@gmail.com'),
-(4, 'Philips', 'Posta 4789, CABA', '741258', 'philips@gmail.com'),
-(5, 'Avon', 'Av. Alvares Thomas 1875', '812654', 'avon@gmail.com');
+(3, 'Phillips', 'Av. Lus Maria Campos 900', '963258', 'Phillips@gmail.com');
 
 --
 -- Índices para tablas volcadas
@@ -142,25 +137,25 @@ ALTER TABLE `proveedor`
 -- AUTO_INCREMENT de la tabla `compra`
 --
 ALTER TABLE `compra`
-  MODIFY `idCompra` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idCompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `detalledecompra`
 --
 ALTER TABLE `detalledecompra`
-  MODIFY `idDetalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idDetalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `idProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedor`
 --
 ALTER TABLE `proveedor`
-  MODIFY `idProveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idProveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restricciones para tablas volcadas
