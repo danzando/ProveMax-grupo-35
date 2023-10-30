@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-10-2023 a las 02:24:18
+-- Tiempo de generación: 30-10-2023 a las 03:39:27
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -35,6 +35,15 @@ CREATE TABLE `compra` (
   `fechaDeCompra` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `compra`
+--
+
+INSERT INTO `compra` (`idCompra`, `idProveedor`, `fechaDeCompra`) VALUES
+(4, 1, '2023-10-11'),
+(5, 2, '2023-10-11'),
+(6, 1, '2023-10-12');
+
 -- --------------------------------------------------------
 
 --
@@ -48,6 +57,14 @@ CREATE TABLE `detalledecompra` (
   `idCompra` int(11) NOT NULL,
   `idProducto` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `detalledecompra`
+--
+
+INSERT INTO `detalledecompra` (`idDetalle`, `cantidad`, `precioDeCosto`, `idCompra`, `idProducto`) VALUES
+(10, 20, 152000.00, 4, 1),
+(11, 2, 53000.00, 5, 3);
 
 -- --------------------------------------------------------
 
@@ -72,7 +89,7 @@ INSERT INTO `producto` (`idProducto`, `nombreDelProducto`, `descripcion`, `preci
 (1, 'Smart Tv ', 'Sony Full HD de 32', 152000.00, 50, 1),
 (3, ' Lavarropas', 'Automático Whirlpool 8Kg', 53000.00, 8, 1),
 (4, 'Cafetera Express', 'Sony', 3200.00, 6, 1),
-(5, 'Pava Eléctrica', 'Philips', 0.00, 12, 1),
+(5, 'Pava Eléctrica', 'Philips', 4000.00, 12, 1),
 (6, 'Microondas', 'Phillips 20Lt', 6500.00, 16, 1);
 
 -- --------------------------------------------------------
@@ -137,13 +154,13 @@ ALTER TABLE `proveedor`
 -- AUTO_INCREMENT de la tabla `compra`
 --
 ALTER TABLE `compra`
-  MODIFY `idCompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idCompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `detalledecompra`
 --
 ALTER TABLE `detalledecompra`
-  MODIFY `idDetalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idDetalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
