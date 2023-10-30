@@ -105,7 +105,7 @@ public class StockDeProductoView extends javax.swing.JInternalFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Id Producto", "Nombre", "Descripción", "Precio", "Stock"
+                "Id ", "Nombre", "Descripción", "Precio", "Stock"
             }
         ) {
             Class[] types = new Class [] {
@@ -124,6 +124,10 @@ public class StockDeProductoView extends javax.swing.JInternalFrame {
             }
         });
         jScrollPane2.setViewportView(jTabla);
+        if (jTabla.getColumnModel().getColumnCount() > 0) {
+            jTabla.getColumnModel().getColumn(0).setMinWidth(26);
+            jTabla.getColumnModel().getColumn(0).setMaxWidth(26);
+        }
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 690, 270));
 

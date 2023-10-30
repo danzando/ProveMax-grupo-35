@@ -73,7 +73,7 @@ public class ProductoProveedorView extends javax.swing.JInternalFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Id Proveedor", "Razon social", "Domicilio", "Telefono", "Mail"
+                "Id ", "Razon social", "Domicilio", "Telefono", "Mail"
             }
         ) {
             Class[] types = new Class [] {
@@ -85,6 +85,10 @@ public class ProductoProveedorView extends javax.swing.JInternalFrame {
             }
         });
         jScrollPane1.setViewportView(jTProveedores);
+        if (jTProveedores.getColumnModel().getColumnCount() > 0) {
+            jTProveedores.getColumnModel().getColumn(0).setMinWidth(26);
+            jTProveedores.getColumnModel().getColumn(0).setMaxWidth(26);
+        }
 
         jLProveedorProducto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLProveedorProducto.setText("Proveedor del producto seleccionado:");
@@ -139,7 +143,7 @@ public class ProductoProveedorView extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addComponent(jBSalir)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

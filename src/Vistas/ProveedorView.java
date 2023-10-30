@@ -181,6 +181,10 @@ public class ProveedorView extends javax.swing.JInternalFrame {
             }
         });
         jScrollPane1.setViewportView(jTabla);
+        if (jTabla.getColumnModel().getColumnCount() > 0) {
+            jTabla.getColumnModel().getColumn(0).setMinWidth(26);
+            jTabla.getColumnModel().getColumn(0).setMaxWidth(26);
+        }
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 340, 701, 116));
 
