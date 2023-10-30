@@ -144,7 +144,7 @@ public class ComprasView extends javax.swing.JInternalFrame {
                 {null, null, null}
             },
             new String [] {
-                "Id Compra", "Proveedor", "Fecha"
+                "Id ", "Proveedor", "Fecha"
             }
         ) {
             Class[] types = new Class [] {
@@ -162,7 +162,12 @@ public class ComprasView extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTabla.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTabla);
+        if (jTabla.getColumnModel().getColumnCount() > 0) {
+            jTabla.getColumnModel().getColumn(0).setMinWidth(26);
+            jTabla.getColumnModel().getColumn(0).setMaxWidth(26);
+        }
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 690, 110));
 
