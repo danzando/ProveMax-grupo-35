@@ -22,14 +22,13 @@ import provemaxgrupo35.accesoDatos.ProductoData;
  * @author Hp
  */
 public class HistorialDeCompras extends javax.swing.JInternalFrame {
+
     private DefaultTableModel modelo1;
     private DefaultTableModel modelo2;
-Producto p = new Producto();
-Compra c = new Compra();
-ProductoData pd = new ProductoData();
-CompraData cd = new CompraData();
-
-
+    Producto p = new Producto();
+    Compra c = new Compra();
+    ProductoData pd = new ProductoData();
+    CompraData cd = new CompraData();
 
     /**
      * Creates new form HistorialDeCompras
@@ -79,7 +78,7 @@ CompraData cd = new CompraData();
                 {null, null}
             },
             new String [] {
-                "Id compra", "Fecha"
+                "Id ", "Fecha"
             }
         ) {
             Class[] types = new Class [] {
@@ -99,6 +98,10 @@ CompraData cd = new CompraData();
         });
         jTCompras.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTCompras);
+        if (jTCompras.getColumnModel().getColumnCount() > 0) {
+            jTCompras.getColumnModel().getColumn(0).setMinWidth(26);
+            jTCompras.getColumnModel().getColumn(0).setMaxWidth(26);
+        }
 
         jTProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -128,6 +131,10 @@ CompraData cd = new CompraData();
         });
         jTProductos.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(jTProductos);
+        if (jTProductos.getColumnModel().getColumnCount() > 0) {
+            jTProductos.getColumnModel().getColumn(0).setMinWidth(26);
+            jTProductos.getColumnModel().getColumn(0).setMaxWidth(26);
+        }
 
         jBBuscarCompras.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jBBuscarCompras.setText("Buscar compras");
@@ -268,101 +275,106 @@ CompraData cd = new CompraData();
             modelo1.removeRow(i);
         }
     }
-    
+
     public void borrarFilaTabla2() {
         int a = modelo2.getRowCount() - 1;
         for (int i = a; i >= 0; i--) {
             modelo2.removeRow(i);
         }
-    
+
     }
-    
-    
-    
+
+
     private void jBBuscarComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarComprasActionPerformed
-    
-       Date fecha = jDCInicio.getDate();
-       Date fechaf = jDCFin.getDate();
-       
+
+        Date fecha = jDCInicio.getDate();
+        Date fechaf = jDCFin.getDate();
+        LocalDate f = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         if (fecha == null) {
-         JOptionPane.showMessageDialog(null,"Debe seleccionar una fecha de inicio");}
-      
-        else if (fechaf == null){
-               
-        { borrarFilaTabla1();
-         
-         LocalDate f = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-         
-          List<Compra> comp =  cd.ListarComprasPorFecha(f);
-         
-            for ( Compra x : comp) {
-             
-            modelo1.addRow(new Object[]{x.getIdCompra(),x.getFechaDeCompra()});
-                
+            JOptionPane.showMessageDialog(null, "Debe seleccionar una fecha de inicio valida");
+        } else if (fechaf == null) {
+
+            borrarFilaTabla1();
+
+            List<Compra> comp = cd.ListarComprasPorFecha(f);
+
+            for (Compra x : comp) {
+
+                modelo1.addRow(new Object[]{x.getIdCompra(), x.getFechaDeCompra()});
             }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Ingrese solo fecha de inicio");
+
+            jDCFin.setDate(null);
         }
-        }
+
+
     }//GEN-LAST:event_jBBuscarComprasActionPerformed
 
     private void jBBuscarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarProductosActionPerformed
-     
-        borrarFilaTabla2();
-        
-        
-        if (jTCompras.getSelectedRow()>-1){
-      
-         int x =(Integer)modelo1.getValueAt(jTCompras.getSelectedRow(),0);
-         
-         c = cd.buscarCompra(x);
 
-         List<Producto> lpc = cd.ProductosDeCompraParticular(c);
-           
-         for (Producto xp : lpc) {
-           
-          modelo2.addRow(new Object[] {xp.getIdProducto(),xp.getNombreDelProducto(), xp.getDescripcion(),xp.getPrecio()} );
-          
-         }
-                  
-                  
-      }
+        borrarFilaTabla2();
+
+        if (jTCompras.getSelectedRow() > -1) {
+
+            int x = (Integer) modelo1.getValueAt(jTCompras.getSelectedRow(), 0);
+
+            c = cd.buscarCompra(x);
+
+            List<Producto> lpc = cd.ProductosDeCompraParticular(c);
+
+            for (Producto xp : lpc) {
+
+                modelo2.addRow(new Object[]{xp.getIdProducto(), xp.getNombreDelProducto(), xp.getDescripcion(), xp.getPrecio()});
+
+            }
+
+        }
 // TODO add your handling code here:
     }//GEN-LAST:event_jBBuscarProductosActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-      dispose();  // TODO add your handling code here:
+        dispose();  // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-      borrarFilaTabla1();
-      borrarFilaTabla2();// TODO add your handling code here:
+        borrarFilaTabla1();
+        borrarFilaTabla2();
+        jDCInicio.setDate(null);
+        jDCFin.setDate(null);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    @SuppressWarnings("null")
     private void jBPEntreFechasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPEntreFechasActionPerformed
-       borrarFilaTabla1();
-       borrarFilaTabla2();
+        borrarFilaTabla1();
+        borrarFilaTabla2();
         Date fecha = jDCInicio.getDate();
         Date fechaf = jDCFin.getDate();
         
-        if (fecha !=null || fechaf !=null){
-            
-        }
-                        LocalDate f = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-                         
-                        LocalDate ff = fechaf.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-                        
-                         
-                         
-                         List<Producto> lpc = cd.MasCompradosEntreFechas(f, ff);
+       
+        
+        LocalDate f = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+        LocalDate ff = fechaf.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        
+        
+        if (fecha.compareTo(fechaf) > 0 || fecha != null || fechaf != null) {
+
            
-         for (Producto xp : lpc) {
-           
-          modelo2.addRow(new Object[] {xp.getIdProducto(),xp.getNombreDelProducto(), xp.getDescripcion(),xp.getPrecio()} );
-                         
-                           // TODO add your handling code here:
+
+            List<Producto> lpc = cd.MasCompradosEntreFechas(f, ff);
+
+            for (Producto xp : lpc) {
+
+                modelo2.addRow(new Object[]{xp.getIdProducto(), xp.getNombreDelProducto(), xp.getDescripcion(), xp.getPrecio()});}
+
+            } else {   JOptionPane.showMessageDialog(null,"La fecha no puede ser mayor a la actual"); }
+    // TODO add your handling code here:
     }//GEN-LAST:event_jBPEntreFechasActionPerformed
      
-    }
-
+         
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBBuscarCompras;
     private javax.swing.JButton jBBuscarProductos;
