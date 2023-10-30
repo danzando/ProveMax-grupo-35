@@ -258,7 +258,7 @@ public class DetallesDeCompraView extends javax.swing.JInternalFrame {
             c = cd.buscarCompra(Integer.parseInt(jTIdCompra.getText()));
             p = pd.buscarProducto(Integer.parseInt(jTIdProducto.getText()));
 
-            if (cantidad < 0 || precioDeCosto < 0.0 || c == null || p == null) {
+            if (cantidad < 0 || precioDeCosto < 0.0 || c == null || p == null ) {
 
                 JOptionPane.showMessageDialog(this, "no puede haber campos vacíos");
 
@@ -286,7 +286,7 @@ public class DetallesDeCompraView extends javax.swing.JInternalFrame {
              
 
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Se ha ingresado un dato incorrecto, intente nuevamente");
+            JOptionPane.showMessageDialog(this, "Se ha ingresado un dato incorrecto o hay campos vacios, intente nuevamente");
         }
      
     }//GEN-LAST:event_jBRegistrarActionPerformed
