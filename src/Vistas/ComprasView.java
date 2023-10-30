@@ -84,7 +84,7 @@ public class ComprasView extends javax.swing.JInternalFrame {
         jPanel1.add(jTIdCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 179, -1));
 
         jBGuardar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jBGuardar.setText("Guardar");
+        jBGuardar.setText("Registrar/Actualizar");
         jBGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBGuardarActionPerformed(evt);

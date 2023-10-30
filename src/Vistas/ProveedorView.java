@@ -137,7 +137,7 @@ public class ProveedorView extends javax.swing.JInternalFrame {
         jPanel1.add(jBBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(587, 71, 92, -1));
 
         jBGuardar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jBGuardar.setText("Guardar");
+        jBGuardar.setText("Registrar/Actualizar");
         jBGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBGuardarActionPerformed(evt);
