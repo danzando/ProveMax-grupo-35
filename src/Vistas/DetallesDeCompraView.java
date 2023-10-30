@@ -251,90 +251,89 @@ public class DetallesDeCompraView extends javax.swing.JInternalFrame {
     private void jBRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRegistrarActionPerformed
         
  
-        try{
-        
-           int cantidad = Integer.parseInt(jTCantidad.getText());
-           
-           double precioDeCosto = Double.parseDouble(jTPrecioDeCosto.getText());
-           
-           c = cd.buscarCompra(Integer.parseInt(jTIdCompra.getText()));
-           
-           p = pd.buscarProducto( Integer.parseInt(jTIdProducto.getText()));
+        try {
 
+            int cantidad = Integer.parseInt(jTCantidad.getText());
+            double precioDeCosto = Double.parseDouble(jTPrecioDeCosto.getText());
+            c = cd.buscarCompra(Integer.parseInt(jTIdCompra.getText()));
+            p = pd.buscarProducto(Integer.parseInt(jTIdProducto.getText()));
 
+            if (cantidad < 0 || precioDeCosto < 0.0 || c == null || p == null) {
 
-           if ( cantidad< 0 || precioDeCosto < 0.0 ||  c == null ||  p==null ){     
-               
-               
-          JOptionPane.showMessageDialog(this, "no puede haber campos vacíos");
-          
-          return;}
-           
-           
-           
-               
-                
-               
-            deta.registrarDetalleDeCompra(cantidad,precioDeCosto,c,p);
-               
-   
+                JOptionPane.showMessageDialog(this, "no puede haber campos vacíos");
+
+                return;
+            }
+
+            cantidad = Integer.parseInt(jTCantidad.getText());
+            // Validar que cant sea mayor o igual a cero 
+            if (cantidad < 0) {
+                JOptionPane.showMessageDialog(this, "Sólo ingrese números enteros");
+                return;
+            }
+
+            if (precioDeCosto < 0.0) {
+                JOptionPane.showMessageDialog(this, "Sólo ingrese números enteros");
+                return;
+            }
             
-               
-             } catch (NumberFormatException e) {
-       JOptionPane.showMessageDialog(this, "Se ha ingresado un dato incorrecto, intente nuevamente");   
-             }       
+           
+              
+              if(d == null){
+               d= new DetalleDeCompra(cantidad, precioDeCosto, c, p);
+              deta.registrarDetalleDeCompra(cantidad, precioDeCosto, c, p);
+              }
+             
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Se ha ingresado un dato incorrecto, intente nuevamente");
+        }
      
     }//GEN-LAST:event_jBRegistrarActionPerformed
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
      
-        d = deta.buscarDetalleDeCompra(Integer.parseInt(jTIdDetalleCompra.getText())) ;
-     
-      jTCantidad.setText(d.getCantidad()+ "");
-      
-      jTPrecioDeCosto.setText(d.getPrecioDeCosto()+ "");
-      
-      c = d.getCompra();
-      
-      jTIdCompra.setText(c.getIdCompra()+"");
-      
-      p = d.getProducto();
-              
-      jTIdProducto.setText(p.getIdProducto()+"");
-      
-      
-      
-      
-      
-      // TODO add your handling code here:
+       String input = jTIdDetalleCompra.getText();
+        if (input.isEmpty()) {
+
+            JOptionPane.showMessageDialog(this, "Debe ingresar un valor en el campo Id Detalle de Compra.");
+        } else {
+            try {
+                int IdDetalleCompra = Integer.parseInt(jTIdDetalleCompra.getText());
+
+                d = deta.buscarDetalleDeCompra(Integer.parseInt(jTIdDetalleCompra.getText()));
+                if (d != null) {
+
+                    jTCantidad.setText(d.getCantidad() + "");
+                    jTPrecioDeCosto.setText(d.getPrecioDeCosto() + "");
+                    c = d.getCompra();
+                    jTIdCompra.setText(c.getIdCompra() + "");
+                    p = d.getProducto();
+                    jTIdProducto.setText(p.getIdProducto() + "");
+
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "El Id Detalle de Compra solo debe contener números");
+                borrarJText();
+            }
+
+        }
     }//GEN-LAST:event_jBBuscarActionPerformed
 
     private void jBModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModificarActionPerformed
-     if (jTIdDetalleCompra.getText() != null) {
-    
-         int a = Integer.parseInt(jTIdDetalleCompra.getText());
-         
-         int e = Integer.parseInt(jTCantidad.getText());
-         
-         double i = Double.parseDouble(jTPrecioDeCosto.getText());
-         
-         int o = Integer.parseInt(jTIdCompra.getText());
-         
-         int u = Integer.parseInt(jTIdProducto.getText());
-         
-         
-         
-         
-         
-         
-         deta.modificarDetalleDeCompra(a,e,i,o,u);
-     
-     borrarJText();
-     
-     
-     
-     }
-// TODO add your handling code here:
+      if (jTIdDetalleCompra.getText() != null) {
+            int confirmacion = JOptionPane.showConfirmDialog(this, "¿Está seguro de que desea modificar los datos?");
+            if (confirmacion == JOptionPane.YES_OPTION) {
+            int a = Integer.parseInt(jTIdDetalleCompra.getText());
+            int e = Integer.parseInt(jTCantidad.getText());
+            double i = Double.parseDouble(jTPrecioDeCosto.getText());
+            int o = Integer.parseInt(jTIdCompra.getText());
+            int u = Integer.parseInt(jTIdProducto.getText());
+            deta.modificarDetalleDeCompra(a, e, i, o, u);
+          
+            borrarJText();
+            }
+        }
     }//GEN-LAST:event_jBModificarActionPerformed
 
     private void jBEliminarDetalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarDetalleActionPerformed
