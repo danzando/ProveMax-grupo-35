@@ -279,7 +279,7 @@ public class DetallesDeCompraView extends javax.swing.JInternalFrame {
             
            
               
-              if(d == null){
+              if(d != null){
                d= new DetalleDeCompra(cantidad, precioDeCosto, c, p);
               deta.registrarDetalleDeCompra(cantidad, precioDeCosto, c, p);
               }
