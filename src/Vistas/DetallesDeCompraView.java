@@ -337,11 +337,28 @@ public class DetallesDeCompraView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBModificarActionPerformed
 
     private void jBEliminarDetalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarDetalleActionPerformed
- if   (jTIdDetalleCompra.getText() != null){
+             if (d != null) {
+            int confirmacion = JOptionPane.showConfirmDialog(this, "¿Seguro que desea eliminar este producto?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
+
+            if (confirmacion == JOptionPane.YES_OPTION) {
+        
+        
+        
    int a = Integer.parseInt(jTIdDetalleCompra.getText());
    deta.borrarDetalleDeCompra(a);
-   borrarJText ();}
-   // TODO add your handling code here:
+   borrarJText ();
+      } else {
+                // El usuario canceló la eliminación
+                // No se realiza ninguna acción adicional
+            }
+        } else {
+
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un detalle de compra");
+
+        }
+   
+   
+   
     }//GEN-LAST:event_jBEliminarDetalleActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed

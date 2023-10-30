@@ -71,7 +71,7 @@ public class DetalleDeCompraData {
 
             ResultSet rs = ps.executeQuery();
             
-            while (rs.next()) {
+            if (rs.next()) {
 
                 dc.setIdDetalle(idDetalle);
 
@@ -87,6 +87,8 @@ public class DetalleDeCompraData {
 
                 dc.setProducto(p);
 
+            }else{  JOptionPane.showMessageDialog(null, "No existe la compra");
+            
             }
 
         } catch (SQLException ex) {
@@ -121,6 +123,8 @@ public class DetalleDeCompraData {
 
                 JOptionPane.showMessageDialog(null, "Detalle de compra actualizado");
 
+             } else {
+                JOptionPane.showMessageDialog(null, "Detalle de compra inexistente");
             }
 
             ps.close();
